@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth dark">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Racha Sumanth | Security Researcher & Systems Engineer</title>
-  <meta name="description" content="Portfolio of Racha Sumanth — Security Researcher, Systems Engineer, and Low-Level Specialist.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+  <title>Racha Sumanth — Portfolio</title>
+  <meta name="description" content="Personal portfolio of Racha Sumanth. Systems, security research, and craft.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
   
-  <!-- Fonts -->
+  <!-- Aesthetic Fonts: Playfair Display + Plus Jakarta Sans + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -20,21 +20,36 @@
       theme: {
         extend: {
           fontFamily: {
+            serif: ['Playfair Display', 'serif'],
             sans: ['Plus Jakarta Sans', 'sans-serif'],
             mono: ['JetBrains Mono', 'monospace'],
           },
           colors: {
-            brand: {
-              50: '#eef2ff',
-              100: '#e0e7ff',
-              400: '#818cf8',
-              500: '#6366f1',
-              600: '#4f46e5',
-              glow: 'rgba(99, 102, 241, 0.15)',
+            // Botanical Greens
+            botanical: {
+              950: '#09110d',
+              900: '#0e1813',
+              850: '#14221b',
+              800: '#1c2e25',
+              700: '#273f33',
+              500: '#3d6350',
+              400: '#52836b',
+              300: '#75a68e',
+              200: '#a3c7b5',
+              100: '#d1e5db',
+            },
+            // Rose Red & Dusty Rose
+            rosewood: {
+              950: '#190a0d',
+              900: '#290f15',
+              800: '#461520',
+              600: '#9e2a42',
+              500: '#c23b56',
+              400: '#e1526f',
+              300: '#f07d94',
+              200: '#f7b1c0',
+              100: '#fde5eb',
             }
-          },
-          animation: {
-            'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
           }
         }
       }
@@ -45,508 +60,509 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    /* Custom glow & glass effects */
-    .bg-mesh {
-      background-image: 
-        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.12) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(168, 85, 247, 0.12) 0px, transparent 50%),
-        radial-gradient(at 50% 50%, rgba(14, 165, 233, 0.08) 0px, transparent 50%);
+    /* Organic, warm aesthetic canvas */
+    body {
+      background-color: #0b130e;
+      color: #f1f5f3;
     }
 
-    .glass-card {
-      background: rgba(18, 18, 24, 0.75);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+    .editorial-bg {
+      background-image: 
+        radial-gradient(ellipse at 15% 10%, rgba(45, 84, 64, 0.28) 0%, transparent 60%),
+        radial-gradient(ellipse at 85% 25%, rgba(194, 59, 86, 0.16) 0%, transparent 55%),
+        radial-gradient(ellipse at 50% 85%, rgba(39, 63, 51, 0.22) 0%, transparent 65%);
+    }
+
+    .card-aesthetic {
+      background: rgba(16, 26, 20, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(163, 199, 181, 0.12);
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .glass-card:hover {
-      border-color: rgba(99, 102, 241, 0.4);
-      transform: translateY(-2px);
-      box-shadow: 0 12px 30px -10px rgba(99, 102, 241, 0.2);
+    .card-aesthetic:hover {
+      background: rgba(20, 34, 27, 0.85);
+      border-color: rgba(225, 82, 111, 0.35);
+      transform: translateY(-3px);
+      box-shadow: 0 16px 36px -12px rgba(11, 19, 14, 0.8), 0 0 24px -6px rgba(194, 59, 86, 0.15);
     }
 
-    .terminal-glow {
-      box-shadow: 0 0 40px -10px rgba(99, 102, 241, 0.25);
+    .card-white-accent {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* Custom scrollbar */
+    /* Custom elegant scrollbar */
     ::-webkit-scrollbar {
-      width: 8px;
+      width: 7px;
     }
     ::-webkit-scrollbar-track {
-      background: #09090b;
+      background: #09110d;
     }
     ::-webkit-scrollbar-thumb {
-      background: #27272a;
+      background: #1c2e25;
       border-radius: 4px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #3f3f46;
+      background: #273f33;
     }
   </style>
 </head>
 
-<body class="bg-zinc-950 text-zinc-100 min-h-screen font-sans antialiased selection:bg-brand-500 selection:text-white bg-mesh relative overflow-x-hidden">
-
-  <!-- Floating Ambient Blur Circles -->
-  <div class="fixed top-20 left-1/4 w-96 h-96 bg-indigo-500/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
-  <div class="fixed top-1/2 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl pointer-events-none -z-10"></div>
+<body class="editorial-bg min-h-screen font-sans antialiased selection:bg-rosewood-500 selection:text-white relative overflow-x-hidden">
 
   <!-- Toast Notification -->
-  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-2 bg-zinc-900 border border-zinc-700 text-white px-4 py-3 rounded-xl shadow-2xl text-sm">
-    <i data-lucide="check-circle" class="w-4 h-4 text-emerald-400"></i>
-    <span id="toast-text">Email copied to clipboard!</span>
+  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-2.5 bg-botanical-900 border border-rosewood-500/40 text-white px-5 py-3 rounded-2xl shadow-2xl text-sm">
+    <i data-lucide="check" class="w-4 h-4 text-botanical-200"></i>
+    <span id="toast-text">Email copied to clipboard</span>
   </div>
 
   <!-- Header / Navigation -->
-  <header class="sticky top-0 z-40 w-full backdrop-blur-xl bg-zinc-950/70 border-b border-zinc-800/60">
-    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-2.5 group">
-        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-400 p-[1px]">
-          <div class="w-full h-full bg-zinc-950 rounded-[11px] flex items-center justify-center group-hover:bg-transparent transition-colors">
-            <span class="font-mono text-sm font-bold text-white tracking-tight">RS</span>
-          </div>
+  <header class="sticky top-0 z-40 w-full backdrop-blur-xl bg-botanical-950/80 border-b border-botanical-800/60">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      
+      <!-- Brand Monogram -->
+      <a href="#" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-full border border-botanical-300/30 flex items-center justify-center bg-botanical-900 group-hover:border-rosewood-400/60 transition-all">
+          <span class="font-serif italic font-bold text-base text-white group-hover:text-rosewood-300 transition-colors">R</span>
         </div>
-        <span class="font-semibold tracking-tight text-zinc-200 group-hover:text-white transition-colors">
-          rachasumanth<span class="text-brand-400">.me</span>
-        </span>
+        <div class="flex flex-col">
+          <span class="font-serif tracking-normal text-lg font-medium text-white group-hover:text-botanical-100 transition-colors">
+            Racha Sumanth
+          </span>
+          <span class="text-[11px] font-mono tracking-wider uppercase text-botanical-300/80">
+            rachasumanth.me
+          </span>
+        </div>
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-7 text-sm font-medium text-zinc-400">
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-botanical-200/80">
         <a href="#about" class="hover:text-white transition-colors">About</a>
+        <a href="#work" class="hover:text-white transition-colors">Selected Work</a>
         <a href="#research" class="hover:text-white transition-colors">Research</a>
-        <a href="#projects" class="hover:text-white transition-colors">Projects</a>
         <a href="#stack" class="hover:text-white transition-colors">Stack</a>
         <a href="#contact" class="hover:text-white transition-colors">Contact</a>
       </nav>
 
-      <!-- Right Action & Status -->
-      <div class="flex items-center gap-4">
-        <div class="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-950/40 border border-emerald-500/30 text-emerald-400 text-xs font-mono">
-          <span class="relative flex h-2 w-2">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-          </span>
-          <span>Open to Projects</span>
+      <!-- Right Action Pill -->
+      <div class="flex items-center gap-3">
+        <div class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-botanical-900/90 border border-botanical-700/60 text-botanical-200 text-xs font-mono">
+          <span class="w-1.5 h-1.5 rounded-full bg-rosewood-400"></span>
+          <span>Available for work</span>
         </div>
 
         <a href="https://github.com/rachasathish55-eng" target="_blank" rel="noopener noreferrer" 
-           class="p-2 rounded-lg bg-zinc-900 border border-zinc-800 hover:border-zinc-700 text-zinc-300 hover:text-white transition-colors"
+           class="p-2.5 rounded-full bg-botanical-900 border border-botanical-700/70 hover:border-white text-botanical-100 hover:text-white transition-colors"
            title="GitHub Profile">
           <i data-lucide="github" class="w-4 h-4"></i>
         </a>
 
         <!-- Mobile Menu Toggle Button -->
-        <button id="menu-btn" class="md:hidden p-2 text-zinc-400 hover:text-white focus:outline-none">
+        <button id="menu-btn" class="md:hidden p-2 text-botanical-200 hover:text-white focus:outline-none">
           <i data-lucide="menu" class="w-5 h-5"></i>
         </button>
       </div>
     </div>
 
     <!-- Mobile Dropdown Menu -->
-    <div id="mobile-menu" class="hidden md:hidden border-b border-zinc-800 bg-zinc-950/95 px-6 py-4 space-y-3 text-sm font-medium text-zinc-300">
+    <div id="mobile-menu" class="hidden md:hidden border-b border-botanical-800 bg-botanical-950/98 px-6 py-5 space-y-4 text-sm font-medium text-botanical-200">
       <a href="#about" class="block hover:text-white">About</a>
-      <a href="#research" class="block hover:text-white">Research & Advisories</a>
-      <a href="#projects" class="block hover:text-white">Projects</a>
+      <a href="#work" class="block hover:text-white">Selected Work</a>
+      <a href="#research" class="block hover:text-white">Research</a>
       <a href="#stack" class="block hover:text-white">Tech Stack</a>
       <a href="#contact" class="block hover:text-white">Contact</a>
     </div>
   </header>
 
-  <main class="max-w-6xl mx-auto px-6 pt-12 pb-24 space-y-28">
+  <main class="max-w-6xl mx-auto px-6 pt-16 pb-28 space-y-32">
 
     <!-- Hero Section -->
-    <section id="about" class="grid lg:grid-cols-12 gap-12 items-center pt-8">
-      <div class="lg:col-span-7 space-y-6">
+    <section id="about" class="grid lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7 space-y-7">
         
-        <!-- Status Pill -->
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-medium">
-          <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
-          <span>Security Researcher & Systems Engineer</span>
+        <!-- Rose Red Accent Pill -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rosewood-950/80 border border-rosewood-500/30 text-rosewood-300 text-xs font-mono tracking-wide">
+          <span class="w-2 h-2 rounded-full bg-rosewood-400"></span>
+          <span>Security Researcher & Systems Architect</span>
         </div>
 
-        <!-- Headline -->
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-[1.12]">
-          Securing low-level cores, <br class="hidden sm:inline">
-          <span class="bg-gradient-to-r from-brand-400 via-indigo-300 to-purple-400 bg-clip-text text-transparent">
-            architecting resilient systems.
-          </span>
+        <!-- Headline with Editorial Serif -->
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-medium tracking-tight text-white leading-[1.15]">
+          Engineering rigor, <br>
+          <span class="italic font-normal text-rosewood-300">uncompromising</span> depth.
         </h1>
 
         <!-- Bio Paragraph -->
-        <p class="text-base sm:text-lg text-zinc-400 leading-relaxed max-w-xl">
-          Hi, I'm <strong class="text-zinc-200 font-semibold">Racha Sumanth</strong>. I specialize in vulnerability research, firmware & IoT systems, fuzzing complex targets, and creating high-performance developer tools.
+        <p class="text-base sm:text-lg text-botanical-200/90 leading-relaxed max-w-xl font-light">
+          I'm <strong class="text-white font-medium">Racha Sumanth</strong>. Dedicated to low-level security research, firmware analysis, and designing resilient systems that withstand adversarial environments.
         </p>
 
         <!-- CTA Action Buttons -->
-        <div class="flex flex-wrap items-center gap-4 pt-2">
-          <a href="#research" 
-             class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-medium text-sm transition-all shadow-lg shadow-brand-500/25">
-            <span>Explore Research</span>
+        <div class="flex flex-wrap items-center gap-4 pt-3">
+          <a href="#work" 
+             class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-botanical-950 font-medium text-sm hover:bg-botanical-100 transition-all shadow-lg hover:shadow-white/10">
+            <span>Explore Projects</span>
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
           </a>
 
           <button onclick="copyEmail()" 
-             class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 text-zinc-200 font-medium text-sm transition-all">
-            <i data-lucide="copy" class="w-4 h-4 text-zinc-400"></i>
+             class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-botanical-900/90 hover:bg-botanical-850 border border-botanical-700/80 hover:border-rosewood-400/60 text-white font-medium text-sm transition-all">
+            <i data-lucide="copy" class="w-4 h-4 text-rosewood-400"></i>
             <span>Copy Contact</span>
           </button>
         </div>
 
         <!-- Social Badges -->
-        <div class="flex items-center gap-4 pt-4 text-zinc-400 text-sm">
-          <span class="text-xs font-mono uppercase tracking-wider text-zinc-400">Connect:</span>
+        <div class="flex items-center gap-5 pt-4 text-botanical-300 text-sm">
+          <span class="text-xs font-mono uppercase tracking-widest text-botanical-400/80">Links:</span>
           <a href="https://github.com/rachasathish55-eng" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" title="GitHub">
             <i data-lucide="github" class="w-4 h-4"></i>
           </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" title="X / Twitter">
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="hover:text-rosewood-300 transition-colors" title="Twitter / X">
             <i data-lucide="twitter" class="w-4 h-4"></i>
           </a>
           <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" title="LinkedIn">
             <i data-lucide="linkedin" class="w-4 h-4"></i>
           </a>
-          <a href="mailto:contact@rachasumanth.me" class="hover:text-white transition-colors" title="Direct Email">
+          <a href="mailto:contact@rachasumanth.me" class="hover:text-rosewood-300 transition-colors" title="Direct Email">
             <i data-lucide="mail" class="w-4 h-4"></i>
           </a>
         </div>
       </div>
 
-      <!-- Interactive Mock Terminal Visual -->
+      <!-- Right Visual: Editorial Card -->
       <div class="lg:col-span-5">
-        <div class="glass-card terminal-glow rounded-2xl overflow-hidden shadow-2xl">
-          <!-- Terminal Titlebar -->
-          <div class="bg-zinc-900/90 px-4 py-3 border-b border-zinc-800/80 flex items-center justify-between">
-            <div class="flex items-center gap-2">
-              <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
-              <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-              <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+        <div class="card-aesthetic rounded-3xl p-7 space-y-6 relative overflow-hidden">
+          
+          <!-- Subtle Rose Gradient Accent in Background -->
+          <div class="absolute -top-12 -right-12 w-44 h-44 bg-rosewood-500/10 rounded-full blur-2xl pointer-events-none"></div>
+
+          <div class="flex items-center justify-between border-b border-botanical-700/50 pb-4">
+            <div class="flex items-center gap-2.5">
+              <span class="w-3 h-3 rounded-full bg-botanical-400"></span>
+              <span class="text-xs font-mono tracking-wider text-botanical-200 uppercase">Field Notes</span>
             </div>
-            <div class="text-xs font-mono text-zinc-400 flex items-center gap-1.5">
-              <i data-lucide="terminal" class="w-3.5 h-3.5 text-zinc-400"></i>
-              <span>sumanth@sec-lab:~</span>
-            </div>
-            <div class="w-8"></div>
+            <span class="text-xs font-mono text-rosewood-300">2026</span>
           </div>
 
-          <!-- Terminal Content -->
-          <div class="p-5 font-mono text-xs sm:text-sm space-y-3.5 text-zinc-300">
-            <div>
-              <span class="text-emerald-400">sumanth@node</span>:<span class="text-brand-400">~</span>$ whoami --verbose
-            </div>
-            <div class="text-zinc-400 pl-2 space-y-1 border-l-2 border-zinc-800">
-              <p>Name: <span class="text-zinc-200 font-semibold">Racha Sumanth</span></p>
-              <p>Domain: <span class="text-brand-400">rachasumanth.me</span></p>
-              <p>Specialization: <span class="text-zinc-200">Offensive Security & Systems</span></p>
-              <p>Current Focus: <span class="text-zinc-200">Differential Fuzzing & Firmware RCE</span></p>
-            </div>
+          <!-- Profile Snapshot -->
+          <div class="space-y-4">
+            <h3 class="font-serif text-2xl text-white font-medium leading-snug">
+              "Finding what breaks reveals how to build."
+            </h3>
+            <p class="text-xs sm:text-sm text-botanical-200/80 leading-relaxed font-light">
+              Focusing on hardware abstraction boundaries, parser differential fuzzing, and kernel security models.
+            </p>
+          </div>
 
-            <div class="pt-2">
-              <span class="text-emerald-400">sumanth@node</span>:<span class="text-brand-400">~</span>$ checksec --metrics
+          <!-- Highlight Metric Boxes -->
+          <div class="grid grid-cols-2 gap-3 pt-2">
+            <div class="p-3.5 rounded-2xl bg-botanical-900/80 border border-botanical-800/80">
+              <span class="text-[11px] font-mono text-botanical-300">Target Disclosures</span>
+              <div class="text-xl font-serif font-bold text-white mt-1">15+ Validated</div>
             </div>
-            <div class="grid grid-cols-2 gap-2 text-xs">
-              <div class="p-2 rounded bg-zinc-900/80 border border-zinc-800/60">
-                <div class="text-zinc-400">Disclosures</div>
-                <div class="text-sm font-bold text-white mt-0.5">15+ Validated</div>
-              </div>
-              <div class="p-2 rounded bg-zinc-900/80 border border-zinc-800/60">
-                <div class="text-zinc-400">Severity</div>
-                <div class="text-sm font-bold text-emerald-400 mt-0.5">Critical & P1/P2</div>
-              </div>
+            <div class="p-3.5 rounded-2xl bg-botanical-900/80 border border-botanical-800/80">
+              <span class="text-[11px] font-mono text-rosewood-300">Focus Severity</span>
+              <div class="text-xl font-serif font-bold text-white mt-1">Critical / P1</div>
             </div>
+          </div>
 
-            <div class="pt-2 flex items-center gap-2 text-zinc-400 text-xs">
-              <span class="w-2 h-2 rounded-full bg-brand-400 animate-ping"></span>
-              <span>Scanning targets for edge cases...</span>
-            </div>
+          <div class="pt-2 flex items-center justify-between text-xs font-mono text-botanical-300/80">
+            <span>Location: India</span>
+            <span class="text-white">Status: Active</span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Stat Highlights Grid -->
+    <!-- Key Metrics Highlight Strip -->
     <section class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <div class="glass-card p-5 rounded-xl text-center">
-        <div class="text-2xl sm:text-3xl font-bold text-white tracking-tight">15+</div>
-        <div class="text-xs sm:text-sm text-zinc-400 mt-1">Bounties & CVEs</div>
+      <div class="card-aesthetic p-6 rounded-2xl text-center space-y-1">
+        <div class="text-3xl font-serif font-bold text-white">15+</div>
+        <div class="text-xs font-mono text-botanical-300 uppercase tracking-wider">Bounties & CVEs</div>
       </div>
-      <div class="glass-card p-5 rounded-xl text-center">
-        <div class="text-2xl sm:text-3xl font-bold text-white tracking-tight">20+</div>
-        <div class="text-xs sm:text-sm text-zinc-400 mt-1">Firmware Reverses</div>
+      <div class="card-aesthetic p-6 rounded-2xl text-center space-y-1">
+        <div class="text-3xl font-serif font-bold text-rosewood-300">20+</div>
+        <div class="text-xs font-mono text-botanical-300 uppercase tracking-wider">Firmware Reverses</div>
       </div>
-      <div class="glass-card p-5 rounded-xl text-center">
-        <div class="text-2xl sm:text-3xl font-bold text-white tracking-tight">100%</div>
-        <div class="text-xs sm:text-sm text-zinc-400 mt-1">Reproduction Accuracy</div>
+      <div class="card-aesthetic p-6 rounded-2xl text-center space-y-1">
+        <div class="text-3xl font-serif font-bold text-white">100%</div>
+        <div class="text-xs font-mono text-botanical-300 uppercase tracking-wider">Proof Gated</div>
       </div>
-      <div class="glass-card p-5 rounded-xl text-center">
-        <div class="text-2xl sm:text-3xl font-bold text-white tracking-tight">&lt;48h</div>
-        <div class="text-xs sm:text-sm text-zinc-400 mt-1">Zero-Day Triaging</div>
-      </div>
-    </section>
-
-    <!-- Security Research & Advisories Section -->
-    <section id="research" class="space-y-8">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-zinc-800/80 pb-4">
-        <div>
-          <div class="text-xs font-mono uppercase tracking-wider text-brand-400">Advisories & Disclosures</div>
-          <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">Featured Security Research</h2>
-        </div>
-        <div class="text-xs font-mono text-zinc-400">
-          Showing Mock Case Studies
-        </div>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-6">
-        <!-- Advisory 1 -->
-        <article class="glass-card p-6 rounded-2xl space-y-4 flex flex-col justify-between">
-          <div class="space-y-3">
-            <div class="flex items-center justify-between gap-2">
-              <span class="px-2.5 py-1 rounded-md bg-red-950/60 border border-red-500/30 text-red-400 font-mono text-xs font-semibold">
-                High / P2
-              </span>
-              <span class="text-xs font-mono text-zinc-400">Oct 2026</span>
-            </div>
-            <h3 class="text-lg font-semibold text-white hover:text-brand-300 transition-colors">
-              Unrestricted Privilege Escalation on Managed Distributed DB Engine
-            </h3>
-            <p class="text-sm text-zinc-400 leading-relaxed">
-              Discovered authentication boundary bypass enabling arbitrary backdoor administrator generation via unsanitized SQL control execution within multi-tenant instances.
-            </p>
-          </div>
-          <div class="pt-3 border-t border-zinc-800/60 flex items-center justify-between text-xs font-mono text-zinc-400">
-            <span>Tags: BAC, Auth-Bypass, RCE</span>
-            <span class="text-emerald-400">Resolved & Rewarded</span>
-          </div>
-        </article>
-
-        <!-- Advisory 2 -->
-        <article class="glass-card p-6 rounded-2xl space-y-4 flex flex-col justify-between">
-          <div class="space-y-3">
-            <div class="flex items-center justify-between gap-2">
-              <span class="px-2.5 py-1 rounded-md bg-amber-950/60 border border-amber-500/30 text-amber-400 font-mono text-xs font-semibold">
-                Critical / 9.8
-              </span>
-              <span class="text-xs font-mono text-zinc-400">Aug 2026</span>
-            </div>
-            <h3 class="text-lg font-semibold text-white hover:text-brand-300 transition-colors">
-              Baseband & AT Command Injection via Quectel Cellular Modules
-            </h3>
-            <p class="text-sm text-zinc-400 leading-relaxed">
-              Identified remote heap buffer overflow in UART packet serialization routine leading to arbitrary peripheral execution and flash firmware overwrite.
-            </p>
-          </div>
-          <div class="pt-3 border-t border-zinc-800/60 flex items-center justify-between text-xs font-mono text-zinc-400">
-            <span>Tags: Firmware, Embedded, Memory Corruption</span>
-            <span class="text-emerald-400">Disclosed (Vendor Patched)</span>
-          </div>
-        </article>
+      <div class="card-aesthetic p-6 rounded-2xl text-center space-y-1">
+        <div class="text-3xl font-serif font-bold text-rosewood-300">&lt;48h</div>
+        <div class="text-xs font-mono text-botanical-300 uppercase tracking-wider">Triage Turnaround</div>
       </div>
     </section>
 
-    <!-- Featured Projects Section -->
-    <section id="projects" class="space-y-8">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-zinc-800/80 pb-4">
+    <!-- Selected Work / Projects -->
+    <section id="work" class="space-y-10">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-botanical-800/80 pb-5">
         <div>
-          <div class="text-xs font-mono uppercase tracking-wider text-brand-400">Engineering</div>
-          <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">Featured Projects & Tools</h2>
+          <span class="text-xs font-mono uppercase tracking-widest text-rosewood-400">Curated Work</span>
+          <h2 class="text-3xl font-serif font-medium text-white mt-1">Featured Systems & Tools</h2>
         </div>
-        <div class="flex items-center gap-2">
-          <button class="px-3 py-1 rounded-lg bg-brand-600/30 border border-brand-500/50 text-white text-xs font-mono">All</button>
-          <button class="px-3 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white text-xs font-mono">Systems</button>
-          <button class="px-3 py-1 rounded-lg bg-zinc-900 border border-zinc-800 text-zinc-400 hover:text-white text-xs font-mono">Security</button>
+        <div class="text-xs font-mono text-botanical-300">
+          Open Source & Tooling
         </div>
       </div>
 
       <div class="grid md:grid-cols-3 gap-6">
+        
         <!-- Project 1 -->
-        <div class="glass-card p-6 rounded-2xl space-y-4 flex flex-col justify-between">
-          <div class="space-y-3">
-            <div class="w-10 h-10 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex items-center justify-center text-brand-400">
+        <div class="card-aesthetic p-7 rounded-3xl space-y-5 flex flex-col justify-between">
+          <div class="space-y-3.5">
+            <div class="w-11 h-11 rounded-2xl bg-botanical-850 border border-botanical-700/60 flex items-center justify-center text-botanical-200">
               <i data-lucide="cpu" class="w-5 h-5"></i>
             </div>
-            <h3 class="text-base font-semibold text-white">QFireHose Custom Flasher</h3>
-            <p class="text-xs text-zinc-400 leading-relaxed">
-              Autonomous Qualcomm & Spreadtrum EDL firmware flasher with partition recovery, unbricking routines, and automated verification daemon.
+            <h3 class="text-lg font-serif font-semibold text-white">QFireHose Custom Flasher</h3>
+            <p class="text-xs sm:text-sm text-botanical-200/80 leading-relaxed font-light">
+              Autonomous Qualcomm & Spreadtrum EDL firmware flasher with partition reconstruction, recovery routines, and serial verification.
             </p>
           </div>
-          <div class="space-y-3 pt-2">
-            <div class="flex flex-wrap gap-1.5 text-[11px] font-mono text-zinc-400">
-              <span class="px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800">C++</span>
-              <span class="px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800">Linux Kernel</span>
-              <span class="px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800">EDL</span>
+          <div class="space-y-4 pt-2">
+            <div class="flex flex-wrap gap-2 text-[11px] font-mono text-botanical-300">
+              <span class="px-2.5 py-1 rounded-full bg-botanical-900 border border-botanical-800">C++</span>
+              <span class="px-2.5 py-1 rounded-full bg-botanical-900 border border-botanical-800">Linux Kernel</span>
+              <span class="px-2.5 py-1 rounded-full bg-botanical-900 border border-botanical-800">EDL Protocol</span>
             </div>
-            <a href="https://github.com/rachasathish55-eng" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-brand-400 hover:text-brand-300 font-medium">
-              <span>View Source</span>
-              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            <a href="https://github.com/rachasathish55-eng" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-rosewood-300 hover:text-white font-medium transition-colors">
+              <span>Inspect Code</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
             </a>
           </div>
         </div>
 
         <!-- Project 2 -->
-        <div class="glass-card p-6 rounded-2xl space-y-4 flex flex-col justify-between">
-          <div class="space-y-3">
-            <div class="w-10 h-10 rounded-xl bg-purple-500/10 border border-purple-500/20 flex items-center justify-center text-purple-400">
-              <i data-lucide="crosshair" class="w-5 h-5"></i>
+        <div class="card-aesthetic p-7 rounded-3xl space-y-5 flex flex-col justify-between">
+          <div class="space-y-3.5">
+            <div class="w-11 h-11 rounded-2xl bg-rosewood-950 border border-rosewood-800/60 flex items-center justify-center text-rosewood-300">
+              <i data-lucide="shield" class="w-5 h-5"></i>
             </div>
-            <h3 class="text-base font-semibold text-white">CH-Hunt Fuzzing Engine</h3>
-            <p class="text-xs text-zinc-400 leading-relaxed">
+            <h3 class="text-lg font-serif font-semibold text-white">CH-Hunt Fuzzing Engine</h3>
+            <p class="text-xs sm:text-sm text-botanical-200/80 leading-relaxed font-light">
               Differential SQL parser generator and AST mutation fuzzer designed to unearth syntax-boundary vulnerabilities in enterprise analytics servers.
             </p>
           </div>
-          <div class="space-y-3 pt-2">
-            <div class="flex flex-wrap gap-1.5 text-[11px] font-mono text-zinc-400">
-              <span class="px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800">Python</span>
-              <span class="px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800">ASAN</span>
-              <span class="px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800">LLVM</span>
+          <div class="space-y-4 pt-2">
+            <div class="flex flex-wrap gap-2 text-[11px] font-mono text-botanical-300">
+              <span class="px-2.5 py-1 rounded-full bg-botanical-900 border border-botanical-800">Python</span>
+              <span class="px-2.5 py-1 rounded-full bg-botanical-900 border border-botanical-800">ASAN</span>
+              <span class="px-2.5 py-1 rounded-full bg-botanical-900 border border-botanical-800">LLVM</span>
             </div>
-            <a href="https://github.com/rachasathish55-eng" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-brand-400 hover:text-brand-300 font-medium">
-              <span>View Source</span>
-              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            <a href="https://github.com/rachasathish55-eng" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-rosewood-300 hover:text-white font-medium transition-colors">
+              <span>Inspect Code</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
             </a>
           </div>
         </div>
 
         <!-- Project 3 -->
-        <div class="glass-card p-6 rounded-2xl space-y-4 flex flex-col justify-between">
-          <div class="space-y-3">
-            <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center text-emerald-400">
+        <div class="card-aesthetic p-7 rounded-3xl space-y-5 flex flex-col justify-between">
+          <div class="space-y-3.5">
+            <div class="w-11 h-11 rounded-2xl bg-botanical-850 border border-botanical-700/60 flex items-center justify-center text-white">
               <i data-lucide="bot" class="w-5 h-5"></i>
             </div>
-            <h3 class="text-base font-semibold text-white">Antigravity Custom Agents</h3>
-            <p class="text-xs text-zinc-400 leading-relaxed">
-              Autonomous security bug hunting skill suites for Antigravity & LLM dev tools, implementing 6-gate verification and wire-level exploit verification.
+            <h3 class="text-lg font-serif font-semibold text-white">Agentic Bug Hunter Suites</h3>
+            <p class="text-xs sm:text-sm text-botanical-200/80 leading-relaxed font-light">
+              Modular skill suites for Antigravity & LLM tools, automating multi-source CVE mapping and wire-level exploit verification.
             </p>
           </div>
-          <div class="space-y-3 pt-2">
-            <div class="flex flex-wrap gap-1.5 text-[11px] font-mono text-zinc-400">
-              <span class="px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800">TypeScript</span>
-              <span class="px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800">LLMs</span>
-              <span class="px-2 py-0.5 rounded bg-zinc-900 border border-zinc-800">CLI</span>
+          <div class="space-y-4 pt-2">
+            <div class="flex flex-wrap gap-2 text-[11px] font-mono text-botanical-300">
+              <span class="px-2.5 py-1 rounded-full bg-botanical-900 border border-botanical-800">TypeScript</span>
+              <span class="px-2.5 py-1 rounded-full bg-botanical-900 border border-botanical-800">CLI</span>
+              <span class="px-2.5 py-1 rounded-full bg-botanical-900 border border-botanical-800">Automation</span>
             </div>
-            <a href="https://github.com/rachasathish55-eng" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-brand-400 hover:text-brand-300 font-medium">
-              <span>View Source</span>
-              <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
+            <a href="https://github.com/rachasathish55-eng" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-rosewood-300 hover:text-white font-medium transition-colors">
+              <span>Inspect Code</span>
+              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
             </a>
           </div>
         </div>
+
+      </div>
+    </section>
+
+    <!-- Research & Advisories Section -->
+    <section id="research" class="space-y-10">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-botanical-800/80 pb-5">
+        <div>
+          <span class="text-xs font-mono uppercase tracking-widest text-botanical-300">Disclosures</span>
+          <h2 class="text-3xl font-serif font-medium text-white mt-1">Vulnerability Research</h2>
+        </div>
+        <div class="text-xs font-mono text-rosewood-300">
+          Responsible Disclosure
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        
+        <!-- Advisory 1 -->
+        <article class="card-aesthetic p-7 rounded-3xl space-y-4 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full bg-rosewood-950 border border-rosewood-500/40 text-rosewood-300 font-mono text-xs font-semibold">
+                High / P2
+              </span>
+              <span class="text-xs font-mono text-botanical-400">Oct 2026</span>
+            </div>
+            <h3 class="text-xl font-serif font-semibold text-white leading-snug">
+              Unrestricted Privilege Escalation on Managed Distributed Engine
+            </h3>
+            <p class="text-xs sm:text-sm text-botanical-200/80 leading-relaxed font-light">
+              Discovered authentication boundary bypass enabling arbitrary backdoor administrator generation via unsanitized SQL control execution within multi-tenant instances.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-botanical-800/60 flex items-center justify-between text-xs font-mono text-botanical-300">
+            <span>BAC, Auth-Bypass</span>
+            <span class="text-white">Resolved & Rewarded</span>
+          </div>
+        </article>
+
+        <!-- Advisory 2 -->
+        <article class="card-aesthetic p-7 rounded-3xl space-y-4 flex flex-col justify-between">
+          <div class="space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="px-3 py-1 rounded-full bg-rosewood-950 border border-rosewood-500/40 text-rosewood-300 font-mono text-xs font-semibold">
+                Critical / 9.8
+              </span>
+              <span class="text-xs font-mono text-botanical-400">Aug 2026</span>
+            </div>
+            <h3 class="text-xl font-serif font-semibold text-white leading-snug">
+              UART Buffer Corruption via Cellular Baseband Controller
+            </h3>
+            <p class="text-xs sm:text-sm text-botanical-200/80 leading-relaxed font-light">
+              Identified remote heap buffer overflow in UART packet serialization routine leading to arbitrary peripheral execution and flash firmware overwrite.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-botanical-800/60 flex items-center justify-between text-xs font-mono text-botanical-300">
+            <span>Firmware, Memory Safety</span>
+            <span class="text-white">Vendor Patched</span>
+          </div>
+        </article>
+
       </div>
     </section>
 
     <!-- Technical Skills / Stack Section -->
-    <section id="stack" class="space-y-8">
-      <div class="border-b border-zinc-800/80 pb-4">
-        <div class="text-xs font-mono uppercase tracking-wider text-brand-400">Capabilities</div>
-        <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">Technical Stack & Tooling</h2>
+    <section id="stack" class="space-y-10">
+      <div class="border-b border-botanical-800/80 pb-5">
+        <span class="text-xs font-mono uppercase tracking-widest text-rosewood-400">Toolkit</span>
+        <h2 class="text-3xl font-serif font-medium text-white mt-1">Capabilities & Architecture</h2>
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        
         <!-- Category 1 -->
-        <div class="glass-card p-5 rounded-2xl space-y-3">
-          <div class="flex items-center gap-2 text-white font-semibold text-sm">
-            <i data-lucide="shield-alert" class="w-4 h-4 text-brand-400"></i>
+        <div class="card-aesthetic p-6 rounded-3xl space-y-4">
+          <div class="flex items-center gap-2.5 text-white font-medium text-sm">
+            <span class="w-2 h-2 rounded-full bg-rosewood-400"></span>
             <span>Security & Reversing</span>
           </div>
-          <ul class="space-y-1.5 text-xs text-zinc-400 font-mono">
+          <ul class="space-y-2 text-xs font-mono text-botanical-200/80">
             <li>• Ghidra & IDA Pro</li>
-            <li>• Burp Suite Pro</li>
-            <li>• GDB / LLDB / PEDA</li>
-            <li>• Fuzzing (AFL++, LibFuzzer)</li>
-            <li>• Dynamic Binary Analysis</li>
+            <li>• Burp Suite Professional</li>
+            <li>• GDB / LLDB / ASAN</li>
+            <li>• AFL++ & Differential Fuzzing</li>
+            <li>• Binary Triage & Emulation</li>
           </ul>
         </div>
 
         <!-- Category 2 -->
-        <div class="glass-card p-5 rounded-2xl space-y-3">
-          <div class="flex items-center gap-2 text-white font-semibold text-sm">
-            <i data-lucide="hard-drive" class="w-4 h-4 text-purple-400"></i>
+        <div class="card-aesthetic p-6 rounded-3xl space-y-4">
+          <div class="flex items-center gap-2.5 text-white font-medium text-sm">
+            <span class="w-2 h-2 rounded-full bg-botanical-300"></span>
             <span>Hardware & Firmware</span>
           </div>
-          <ul class="space-y-1.5 text-xs text-zinc-400 font-mono">
-            <li>• Qualcomm EDL / Sahara</li>
+          <ul class="space-y-2 text-xs font-mono text-botanical-200/80">
+            <li>• Qualcomm Sahara & Firehose</li>
             <li>• Spreadtrum FDL Protocol</li>
-            <li>• UART / JTAG / SPI Probing</li>
-            <li>• LogicROM & FreeRTOS</li>
-            <li>• Device Tree & U-Boot</li>
+            <li>• UART / JTAG / SPI Hardware</li>
+            <li>• FreeRTOS & Embedded C</li>
+            <li>• Partition & Flash Recovery</li>
           </ul>
         </div>
 
         <!-- Category 3 -->
-        <div class="glass-card p-5 rounded-2xl space-y-3">
-          <div class="flex items-center gap-2 text-white font-semibold text-sm">
-            <i data-lucide="code-2" class="w-4 h-4 text-emerald-400"></i>
+        <div class="card-aesthetic p-6 rounded-3xl space-y-4">
+          <div class="flex items-center gap-2.5 text-white font-medium text-sm">
+            <span class="w-2 h-2 rounded-full bg-white"></span>
             <span>Languages & Systems</span>
           </div>
-          <ul class="space-y-1.5 text-xs text-zinc-400 font-mono">
-            <li>• C / C++20</li>
+          <ul class="space-y-2 text-xs font-mono text-botanical-200/80">
+            <li>• C & Modern C++</li>
             <li>• Rust & Python</li>
-            <li>• Bash / POSIX Shell</li>
-            <li>• SQL & Database Internals</li>
-            <li>• Linux Kernel & IPC</li>
+            <li>• POSIX Shell / Fish / Bash</li>
+            <li>• SQL & Storage Internals</li>
+            <li>• Linux Kernel Tracing</li>
           </ul>
         </div>
 
         <!-- Category 4 -->
-        <div class="glass-card p-5 rounded-2xl space-y-3">
-          <div class="flex items-center gap-2 text-white font-semibold text-sm">
-            <i data-lucide="workflow" class="w-4 h-4 text-amber-400"></i>
+        <div class="card-aesthetic p-6 rounded-3xl space-y-4">
+          <div class="flex items-center gap-2.5 text-white font-medium text-sm">
+            <span class="w-2 h-2 rounded-full bg-rosewood-300"></span>
             <span>Cloud & Automation</span>
           </div>
-          <ul class="space-y-1.5 text-xs text-zinc-400 font-mono">
-            <li>• Docker & Podman</li>
-            <li>• GitHub Actions CI/CD</li>
-            <li>• Cloudflare Tunnels</li>
-            <li>• Agentic AI Frameworks</li>
-            <li>• WireGuard & Networking</li>
+          <ul class="space-y-2 text-xs font-mono text-botanical-200/80">
+            <li>• Docker & Rootless Podman</li>
+            <li>• GitHub Actions Pipelines</li>
+            <li>• WireGuard & Cloudflare</li>
+            <li>• Custom AI Coding Agents</li>
+            <li>• Reproducible Harnesses</li>
           </ul>
         </div>
+
       </div>
     </section>
 
     <!-- Contact & Footer Section -->
-    <section id="contact" class="glass-card p-8 sm:p-12 rounded-3xl relative overflow-hidden">
-      <!-- Background accent glow -->
-      <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <section id="contact" class="card-aesthetic p-9 sm:p-14 rounded-3xl relative overflow-hidden">
+      
+      <!-- Subtle Rose Petal Glow in Corner -->
+      <div class="absolute -right-16 -bottom-16 w-72 h-72 bg-rosewood-500/15 rounded-full blur-3xl pointer-events-none"></div>
 
       <div class="max-w-2xl space-y-6">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-mono">
-          <i data-lucide="send" class="w-3 h-3"></i>
-          <span>Get in Touch</span>
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-botanical-900 border border-botanical-700 text-botanical-200 text-xs font-mono">
+          <span class="w-1.5 h-1.5 rounded-full bg-rosewood-400"></span>
+          <span>Initiate Contact</span>
         </div>
 
-        <h2 class="text-3xl sm:text-4xl font-bold text-white tracking-tight">
-          Have an interesting challenge or security audit?
+        <h2 class="text-3xl sm:text-4xl font-serif font-medium text-white tracking-tight">
+          Let’s examine systems or collaborate on research.
         </h2>
 
-        <p class="text-zinc-400 text-sm sm:text-base leading-relaxed">
-          I'm always open to discussing vulnerability research, firmware development, hardware triage, or high-impact engineering collaborations.
+        <p class="text-botanical-200/80 text-sm sm:text-base leading-relaxed font-light">
+          Available for deep vulnerability audits, systems engineering, hardware recovery, or technical advising.
         </p>
 
-        <div class="flex flex-wrap items-center gap-4 pt-2">
+        <div class="flex flex-wrap items-center gap-4 pt-3">
           <a href="mailto:contact@rachasumanth.me" 
-             class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white text-zinc-950 hover:bg-zinc-200 font-semibold text-sm transition-all shadow-xl">
-            <i data-lucide="mail" class="w-4 h-4 text-zinc-900"></i>
+             class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-botanical-950 font-semibold text-sm hover:bg-botanical-100 transition-all shadow-xl">
+            <i data-lucide="mail" class="w-4 h-4 text-botanical-950"></i>
             <span>contact@rachasumanth.me</span>
           </a>
 
           <button onclick="copyEmail()" 
-             class="inline-flex items-center gap-2 px-5 py-3.5 rounded-xl bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 text-zinc-200 text-sm font-medium transition-all">
-            <i data-lucide="copy" class="w-4 h-4 text-zinc-400"></i>
+             class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-botanical-900/90 hover:bg-botanical-850 border border-botanical-700 text-white text-sm font-medium transition-all">
+            <i data-lucide="copy" class="w-4 h-4 text-rosewood-400"></i>
             <span>Copy Address</span>
           </button>
         </div>
       </div>
 
       <!-- Footer Bottom -->
-      <div class="mt-16 pt-8 border-t border-zinc-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-zinc-400">
+      <div class="mt-16 pt-8 border-t border-botanical-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-botanical-400">
         <div>
-          © <span id="current-year">2026</span> Racha Sumanth. Hosted on <a href="https://pages.github.com/" class="underline hover:text-white" target="_blank">GitHub Pages</a>.
+          © <span id="current-year">2026</span> Racha Sumanth • <span class="text-rosewood-300">rachasumanth.me</span>
         </div>
         <div class="flex items-center gap-4">
           <a href="https://github.com/rachasathish55-eng" target="_blank" class="hover:text-white transition-colors">GitHub</a>
           <span>•</span>
-          <a href="#about" class="hover:text-white transition-colors">Back to Top ↑</a>
+          <a href="#about" class="hover:text-white transition-colors">Top ↑</a>
         </div>
       </div>
     </section>
@@ -567,7 +583,6 @@
       menuBtn.addEventListener('click', () => {
         mobileMenu.classList.toggle('hidden');
       });
-      // Close mobile menu upon clicking links
       mobileMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
       });
