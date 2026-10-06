@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Racha Sumanth — Portfolio</title>
+  <title>Racha Sumanth — Security Researcher & Systems Engineer</title>
   <meta name="description" content="Personal portfolio of Racha Sumanth. Systems, security research, and craft.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
   
-  <!-- Aesthetic Fonts: Playfair Display + Plus Jakarta Sans + JetBrains Mono -->
+  <!-- Aesthetic Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -25,7 +25,6 @@
             mono: ['JetBrains Mono', 'monospace'],
           },
           colors: {
-            // Botanical Greens
             botanical: {
               950: '#09110d',
               900: '#0e1813',
@@ -38,7 +37,6 @@
               200: '#a3c7b5',
               100: '#d1e5db',
             },
-            // Rose Red & Dusty Rose
             rosewood: {
               950: '#190a0d',
               900: '#290f15',
@@ -60,7 +58,6 @@
   <script src="https://unpkg.com/lucide@latest"></script>
 
   <style>
-    /* Organic, warm aesthetic canvas */
     body {
       background-color: #0b130e;
       color: #f1f5f3;
@@ -88,9 +85,46 @@
       box-shadow: 0 16px 36px -12px rgba(11, 19, 14, 0.8), 0 0 24px -6px rgba(194, 59, 86, 0.15);
     }
 
-    .card-white-accent {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+    /* Adham Dannaway Split Canvas Styling */
+    .split-wrapper {
+      position: relative;
+      width: 100%;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(163, 199, 181, 0.15);
+      cursor: col-resize;
+      user-select: none;
+      touch-action: none;
+    }
+
+    .split-divider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 0 12px rgba(255, 255, 255, 0.8), 0 0 24px rgba(225, 82, 111, 0.5);
+      pointer-events: none;
+      transform: translateX(-50%);
+      transition: opacity 0.2s ease;
+      z-index: 20;
+    }
+
+    .split-handle {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 32px;
+      height: 32px;
+      border-radius: 9999px;
+      background: #ffffff;
+      color: #0b130e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     /* Custom elegant scrollbar */
@@ -139,7 +173,7 @@
 
       <!-- Desktop Nav -->
       <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-botanical-200/80">
-        <a href="#about" class="hover:text-white transition-colors">About</a>
+        <a href="#hero-feature" class="hover:text-white transition-colors">Identity</a>
         <a href="#work" class="hover:text-white transition-colors">Selected Work</a>
         <a href="#research" class="hover:text-white transition-colors">Research</a>
         <a href="#stack" class="hover:text-white transition-colors">Stack</a>
@@ -168,7 +202,7 @@
 
     <!-- Mobile Dropdown Menu -->
     <div id="mobile-menu" class="hidden md:hidden border-b border-botanical-800 bg-botanical-950/98 px-6 py-5 space-y-4 text-sm font-medium text-botanical-200">
-      <a href="#about" class="block hover:text-white">About</a>
+      <a href="#hero-feature" class="block hover:text-white">Identity</a>
       <a href="#work" class="block hover:text-white">Selected Work</a>
       <a href="#research" class="block hover:text-white">Research</a>
       <a href="#stack" class="block hover:text-white">Tech Stack</a>
@@ -176,105 +210,100 @@
     </div>
   </header>
 
-  <main class="max-w-6xl mx-auto px-6 pt-16 pb-28 space-y-32">
+  <main class="max-w-6xl mx-auto px-6 pt-12 pb-28 space-y-32">
 
-    <!-- Hero Section -->
-    <section id="about" class="grid lg:grid-cols-12 gap-12 items-center">
-      <div class="lg:col-span-7 space-y-7">
-        
-        <!-- Rose Red Accent Pill -->
+    <!-- ADHAM DANNAWAY STYLE SPLIT HERO SECTION -->
+    <section id="hero-feature" class="space-y-10 pt-4">
+      
+      <!-- Top Subtitle Badges -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rosewood-950/80 border border-rosewood-500/30 text-rosewood-300 text-xs font-mono tracking-wide">
           <span class="w-2 h-2 rounded-full bg-rosewood-400"></span>
           <span>Security Researcher & Systems Architect</span>
         </div>
 
-        <!-- Headline with Editorial Serif -->
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-medium tracking-tight text-white leading-[1.15]">
-          Engineering rigor, <br>
-          <span class="italic font-normal text-rosewood-300">uncompromising</span> depth.
-        </h1>
-
-        <!-- Bio Paragraph -->
-        <p class="text-base sm:text-lg text-botanical-200/90 leading-relaxed max-w-xl font-light">
-          I'm <strong class="text-white font-medium">Racha Sumanth</strong>. Dedicated to low-level security research, firmware analysis, and designing resilient systems that withstand adversarial environments.
-        </p>
-
-        <!-- CTA Action Buttons -->
-        <div class="flex flex-wrap items-center gap-4 pt-3">
-          <a href="#work" 
-             class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-botanical-950 font-medium text-sm hover:bg-botanical-100 transition-all shadow-lg hover:shadow-white/10">
-            <span>Explore Projects</span>
-            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-          </a>
-
-          <button onclick="copyEmail()" 
-             class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-botanical-900/90 hover:bg-botanical-850 border border-botanical-700/80 hover:border-rosewood-400/60 text-white font-medium text-sm transition-all">
-            <i data-lucide="copy" class="w-4 h-4 text-rosewood-400"></i>
-            <span>Copy Contact</span>
-          </button>
-        </div>
-
-        <!-- Social Badges -->
-        <div class="flex items-center gap-5 pt-4 text-botanical-300 text-sm">
-          <span class="text-xs font-mono uppercase tracking-widest text-botanical-400/80">Links:</span>
-          <a href="https://github.com/rachasathish55-eng" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" title="GitHub">
-            <i data-lucide="github" class="w-4 h-4"></i>
-          </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" class="hover:text-rosewood-300 transition-colors" title="Twitter / X">
-            <i data-lucide="twitter" class="w-4 h-4"></i>
-          </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors" title="LinkedIn">
-            <i data-lucide="linkedin" class="w-4 h-4"></i>
-          </a>
-          <a href="mailto:contact@rachasumanth.me" class="hover:text-rosewood-300 transition-colors" title="Direct Email">
-            <i data-lucide="mail" class="w-4 h-4"></i>
-          </a>
+        <div class="text-xs font-mono text-botanical-300/80 flex items-center gap-2">
+          <i data-lucide="move-horizontal" class="w-3.5 h-3.5 text-rosewood-300"></i>
+          <span>Hover or drag canvas to explore dual perspectives</span>
         </div>
       </div>
 
-      <!-- Right Visual: Editorial Card -->
-      <div class="lg:col-span-5">
-        <div class="card-aesthetic rounded-3xl p-7 space-y-6 relative overflow-hidden">
-          
-          <!-- Subtle Rose Gradient Accent in Background -->
-          <div class="absolute -top-12 -right-12 w-44 h-44 bg-rosewood-500/10 rounded-full blur-2xl pointer-events-none"></div>
-
-          <div class="flex items-center justify-between border-b border-botanical-700/50 pb-4">
-            <div class="flex items-center gap-2.5">
-              <span class="w-3 h-3 rounded-full bg-botanical-400"></span>
-              <span class="text-xs font-mono tracking-wider text-botanical-200 uppercase">Field Notes</span>
-            </div>
-            <span class="text-xs font-mono text-rosewood-300">2026</span>
-          </div>
-
-          <!-- Profile Snapshot -->
-          <div class="space-y-4">
-            <h3 class="font-serif text-2xl text-white font-medium leading-snug">
-              "Finding what breaks reveals how to build."
-            </h3>
-            <p class="text-xs sm:text-sm text-botanical-200/80 leading-relaxed font-light">
-              Focusing on hardware abstraction boundaries, parser differential fuzzing, and kernel security models.
-            </p>
-          </div>
-
-          <!-- Highlight Metric Boxes -->
-          <div class="grid grid-cols-2 gap-3 pt-2">
-            <div class="p-3.5 rounded-2xl bg-botanical-900/80 border border-botanical-800/80">
-              <span class="text-[11px] font-mono text-botanical-300">Target Disclosures</span>
-              <div class="text-xl font-serif font-bold text-white mt-1">15+ Validated</div>
-            </div>
-            <div class="p-3.5 rounded-2xl bg-botanical-900/80 border border-botanical-800/80">
-              <span class="text-[11px] font-mono text-rosewood-300">Focus Severity</span>
-              <div class="text-xl font-serif font-bold text-white mt-1">Critical / P1</div>
-            </div>
-          </div>
-
-          <div class="pt-2 flex items-center justify-between text-xs font-mono text-botanical-300/80">
-            <span>Location: India</span>
-            <span class="text-white">Status: Active</span>
+      <!-- Hero 3-Column Split Display -->
+      <div class="grid lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- Left Column: Designer / Architect Persona -->
+        <div id="designer-trigger" class="lg:col-span-3 text-left space-y-3 cursor-pointer group order-2 lg:order-1 transition-opacity duration-300">
+          <h2 class="font-serif text-3xl sm:text-4xl text-white font-medium tracking-tight group-hover:text-rosewood-300 transition-colors">
+            architect
+          </h2>
+          <p class="text-sm text-botanical-200/80 font-light leading-relaxed">
+            Systems blueprint designer specializing in firmware security, parser boundaries & exploit models.
+          </p>
+          <div class="inline-flex items-center gap-1.5 text-xs font-mono text-rosewood-300 pt-1 group-hover:underline">
+            <span>Explore art blueprint</span>
+            <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
           </div>
         </div>
+
+        <!-- Center: Interactive Split Canvas -->
+        <div class="lg:col-span-6 order-1 lg:order-2">
+          <div id="split-box" class="split-wrapper relative" style="aspect-ratio: 1676 / 938;">
+            
+            <!-- Base Layer: Blueprint Art -->
+            <img id="img-art" 
+                 src="assets/images/portrait-art.webp" 
+                 alt="Sumanth Blueprint Illustration" 
+                 class="absolute inset-0 w-full h-full object-cover select-none pointer-events-none">
+
+            <!-- Top Layer: Real Portrait (Clipped dynamically) -->
+            <div id="img-real-clip" class="absolute inset-0 overflow-hidden pointer-events-none" style="clip-path: polygon(40.57% 0%, 100% 0%, 100% 100%, 40.57% 100%);">
+              <img id="img-real" 
+                   src="assets/images/portrait-real.webp" 
+                   alt="Sumanth Real Portrait" 
+                   class="absolute inset-0 w-full h-full object-cover select-none pointer-events-none">
+            </div>
+
+            <!-- Vertical Dividing Line & Handle -->
+            <div id="split-line" class="split-divider" style="left: 40.57%;">
+              <div class="split-handle">
+                <i data-lucide="chevrons-left-right" class="w-4 h-4 text-botanical-950"></i>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Right Column: Coder Persona -->
+        <div id="coder-trigger" class="lg:col-span-3 text-left lg:text-right space-y-3 cursor-pointer group order-3 transition-opacity duration-300">
+          <h2 class="font-serif text-3xl sm:text-4xl text-white font-medium tracking-tight group-hover:text-rosewood-300 transition-colors">
+            &lt;coder&gt;
+          </h2>
+          <p class="text-sm text-botanical-200/80 font-light leading-relaxed">
+            Systems developer who writes clean, verifiable, and resilient low-level software.
+          </p>
+          <div class="inline-flex items-center gap-1.5 text-xs font-mono text-rosewood-300 pt-1 group-hover:underline">
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+            <span>Reveal real portrait</span>
+          </div>
+        </div>
+
       </div>
+
+      <!-- Quick Action Buttons Below Hero -->
+      <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+        <a href="#work" 
+           class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-botanical-950 font-medium text-sm hover:bg-botanical-100 transition-all shadow-lg hover:shadow-white/10">
+          <span>Explore Projects</span>
+          <i data-lucide="arrow-down" class="w-4 h-4"></i>
+        </a>
+
+        <button onclick="copyEmail()" 
+           class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-botanical-900/90 hover:bg-botanical-850 border border-botanical-700/80 hover:border-rosewood-400/60 text-white font-medium text-sm transition-all">
+          <i data-lucide="copy" class="w-4 h-4 text-rosewood-400"></i>
+          <span>Copy Contact</span>
+        </button>
+      </div>
+
     </section>
 
     <!-- Key Metrics Highlight Strip -->
@@ -562,13 +591,14 @@
         <div class="flex items-center gap-4">
           <a href="https://github.com/rachasathish55-eng" target="_blank" class="hover:text-white transition-colors">GitHub</a>
           <span>•</span>
-          <a href="#about" class="hover:text-white transition-colors">Top ↑</a>
+          <a href="#hero-feature" class="hover:text-white transition-colors">Top ↑</a>
         </div>
       </div>
     </section>
 
   </main>
 
+  <!-- Interactive Adham Dannaway Split Script -->
   <script>
     // Initialize Lucide icons
     lucide.createIcons();
@@ -604,6 +634,106 @@
         console.error('Failed to copy email: ', err);
       });
     }
+
+    // ========================================================
+    // Adham Dannaway Style Interactive Split Controller
+    // ========================================================
+    (function initSplitFeature() {
+      const splitBox = document.getElementById('split-box');
+      const clipOverlay = document.getElementById('img-real-clip');
+      const splitLine = document.getElementById('split-line');
+      const designerTrigger = document.getElementById('designer-trigger');
+      const coderTrigger = document.getElementById('coder-trigger');
+
+      if (!splitBox || !clipOverlay || !splitLine) return;
+
+      // Resting split percentage (centered on facial midline: 680 / 1676 ≈ 40.57%)
+      const DEFAULT_SPLIT = 40.57;
+      let currentSplit = DEFAULT_SPLIT;
+      let targetSplit = DEFAULT_SPLIT;
+      let isInteracting = false;
+      let isDragging = false;
+      let animFrameId = null;
+
+      function updateView(pct) {
+        clipOverlay.style.clipPath = `polygon(${pct}% 0%, 100% 0%, 100% 100%, ${pct}% 100%)`;
+        splitLine.style.left = `${pct}%`;
+      }
+
+      function lerpLoop() {
+        // Smooth easing towards target position
+        currentSplit += (targetSplit - currentSplit) * 0.14;
+        updateView(currentSplit);
+
+        if (Math.abs(targetSplit - currentSplit) > 0.05) {
+          animFrameId = requestAnimationFrame(lerpLoop);
+        } else {
+          currentSplit = targetSplit;
+          updateView(currentSplit);
+          animFrameId = null;
+        }
+      }
+
+      function setTarget(pct) {
+        targetSplit = Math.max(5, Math.min(95, pct));
+        if (!animFrameId) {
+          animFrameId = requestAnimationFrame(lerpLoop);
+        }
+      }
+
+      function getPctFromEvent(e) {
+        const rect = splitBox.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const x = clientX - rect.left;
+        return (x / rect.width) * 100;
+      }
+
+      // Mouse & Pointer move on canvas
+      splitBox.addEventListener('pointerenter', () => {
+        isInteracting = true;
+      });
+
+      splitBox.addEventListener('pointermove', (e) => {
+        const pct = getPctFromEvent(e);
+        setTarget(pct);
+      });
+
+      splitBox.addEventListener('pointerleave', () => {
+        if (!isDragging) {
+          isInteracting = false;
+          setTarget(DEFAULT_SPLIT);
+        }
+      });
+
+      // Pointer drag support
+      splitBox.addEventListener('pointerdown', (e) => {
+        isDragging = true;
+        splitBox.setPointerCapture(e.pointerId);
+        setTarget(getPctFromEvent(e));
+      });
+
+      splitBox.addEventListener('pointerup', (e) => {
+        isDragging = false;
+        try { splitBox.releasePointerCapture(e.pointerId); } catch(err){}
+        if (!isInteracting) {
+          setTarget(DEFAULT_SPLIT);
+        }
+      });
+
+      // Hover triggers on flanking text columns
+      if (designerTrigger) {
+        designerTrigger.addEventListener('mouseenter', () => setTarget(85));
+        designerTrigger.addEventListener('mouseleave', () => setTarget(DEFAULT_SPLIT));
+      }
+
+      if (coderTrigger) {
+        coderTrigger.addEventListener('mouseenter', () => setTarget(15));
+        coderTrigger.addEventListener('mouseleave', () => setTarget(DEFAULT_SPLIT));
+      }
+
+      // Initial layout update
+      updateView(DEFAULT_SPLIT);
+    })();
   </script>
 </body>
 </html>
