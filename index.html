@@ -1,739 +1,3001 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Racha Sumanth — Security Researcher & Systems Engineer</title>
-  <meta name="description" content="Personal portfolio of Racha Sumanth. Systems, security research, and craft.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌿</text></svg>">
-  
-  <!-- Aesthetic Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: {
-        extend: {
-          fontFamily: {
-            serif: ['Playfair Display', 'serif'],
-            sans: ['Plus Jakarta Sans', 'sans-serif'],
-            mono: ['JetBrains Mono', 'monospace'],
-          },
-          colors: {
-            botanical: {
-              950: '#09110d',
-              900: '#0e1813',
-              850: '#14221b',
-              800: '#1c2e25',
-              700: '#273f33',
-              500: '#3d6350',
-              400: '#52836b',
-              300: '#75a68e',
-              200: '#a3c7b5',
-              100: '#d1e5db',
-            },
-            rosewood: {
-              950: '#190a0d',
-              900: '#290f15',
-              800: '#461520',
-              600: '#9e2a42',
-              500: '#c23b56',
-              400: '#e1526f',
-              300: '#f07d94',
-              200: '#f7b1c0',
-              100: '#fde5eb',
-            }
-          }
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Racha Sumanth | Founder @ Swadeshi AI Private Limited</title>
+    <meta
+      name="description"
+      content="Official research laboratory and portfolio of Racha Sumanth — Founder of Swadeshi AI Private Limited, Deep-Tech AI Researcher, Patent Applicant (202541016797), and Systems Engineer."
+    />
+    <meta
+      name="keywords"
+      content="Racha Sumanth, Swadeshi AI, Swadeshi AI Private Limited, Titan Architecture, Artificial Brain, Recursive Memory Titan, Patent 202541016797, Deep Tech, Reinforcement Learning"
+    />
+    <meta name="author" content="Racha Sumanth" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="http://rachasumanth.me/" />
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Racha Sumanth | Founder @ Swadeshi AI Private Limited" />
+    <meta
+      property="og:description"
+      content="Deep-tech portfolio of Racha Sumanth: Founder of Swadeshi AI Private Limited, Patent Applicant (202541016797), and AI Systems Researcher."
+    />
+    <meta property="og:url" content="http://rachasumanth.me/" />
+    <meta property="og:image" content="assets/images/swadeshi-logo.jpg" />
+
+    <!-- Typography Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="assets/images/swadeshi-logo.jpg" />
+
+    <!-- Stylesheet inspired directly by swadeshi.dev -->
+    <style>
+      :root {
+        color-scheme: light;
+
+        /* Swadeshi AI Core Color System */
+        --bg: #eaf5ee;
+        --bg-subtle: #f3faf5;
+        --bg-alt: #dfefe5;
+        --surface: #ffffff;
+        --surface-alt: #f7fbf8;
+        --surface-elevated: #ffffff;
+
+        --text-primary: #0a0e11;
+        --text-secondary: #2b3941;
+        --text-muted: #536772;
+        --text-faint: #7d939e;
+
+        --line: #c2d9cc;
+        --line-light: #d8e9df;
+        --line-strong: #8ea89b;
+        --line-active: #4f3df5;
+
+        --accent: #513ff6;
+        --accent-hover: #3f2be6;
+        --accent-light: #e9e6ff;
+        --accent-cyan: #009cb9;
+        --accent-mint: #25b875;
+        --accent-alert: #d6334a;
+
+        --shadow-sm: 0 2px 8px rgba(10, 20, 16, 0.04);
+        --shadow-md: 0 10px 28px rgba(10, 20, 16, 0.07);
+        --shadow-lg: 0 20px 50px rgba(10, 20, 16, 0.1);
+        --shadow-glow: 0 0 30px rgba(81, 63, 246, 0.18);
+        --shadow-mint-glow: 0 0 30px rgba(37, 184, 117, 0.2);
+
+        --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        --font-mono: "JetBrains Mono", "SF Mono", Consolas, monospace;
+
+        --radius-xs: 2px;
+        --radius-sm: 4px;
+        --radius-md: 6px;
+        --radius-lg: 8px;
+
+        --header-height: 4.5rem;
+        --container-max: 1220px;
+        --container-pad: clamp(1.2rem, 4vw, 2.5rem);
+
+        --transition-fast: 150ms cubic-bezier(0.16, 1, 0.3, 1);
+        --transition-normal: 250ms cubic-bezier(0.16, 1, 0.3, 1);
+        --transition-smooth: 400ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      html[data-theme="dark"] {
+        color-scheme: dark;
+
+        --bg: #070b0e;
+        --bg-subtle: #0d1318;
+        --bg-alt: #121a20;
+        --surface: #10171d;
+        --surface-alt: #162029;
+        --surface-elevated: #1a2530;
+
+        --text-primary: #e6f4ee;
+        --text-secondary: #b1c7bd;
+        --text-muted: #728b80;
+        --text-faint: #4c6258;
+
+        --line: #1c2b24;
+        --line-light: #16221c;
+        --line-strong: #2f493d;
+        --line-active: #786bff;
+
+        --accent: #786bff;
+        --accent-hover: #9186ff;
+        --accent-light: rgba(120, 107, 255, 0.15);
+        --accent-cyan: #22c7e8;
+        --accent-mint: #3de391;
+        --accent-alert: #ff576f;
+
+        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+        --shadow-md: 0 10px 28px rgba(0, 0, 0, 0.45);
+        --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.6);
+        --shadow-glow: 0 0 35px rgba(120, 107, 255, 0.28);
+        --shadow-mint-glow: 0 0 35px rgba(61, 227, 145, 0.22);
+      }
+
+      /* RESET & BASE SETUP */
+      *, *::before, *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        font-size: 16px;
+        scroll-behavior: smooth;
+        text-rendering: geometricPrecision;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        font-family: var(--font-sans);
+        background-color: var(--bg);
+        color: var(--text-primary);
+        line-height: 1.62;
+        min-height: 100vh;
+        position: relative;
+        overflow-x: hidden;
+        transition: background-color var(--transition-normal), color var(--transition-normal);
+      }
+
+      /* Technical Coordinate Grid Background */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image: 
+          linear-gradient(to right, rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+        background-size: 40px 40px;
+        z-index: 0;
+        mask-image: radial-gradient(circle at 50% 30%, black 40%, transparent 95%);
+      }
+
+      html[data-theme="dark"] body::before {
+        background-image: 
+          linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      }
+
+      /* Precision Dots Texture */
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background-image: radial-gradient(rgba(81, 63, 246, 0.08) 1px, transparent 1px);
+        background-size: 20px 20px;
+        z-index: 0;
+        opacity: 0.6;
+      }
+
+      html[data-theme="dark"] body::after {
+        background-image: radial-gradient(rgba(120, 107, 255, 0.12) 1px, transparent 1px);
+      }
+
+      .container {
+        width: 100%;
+        max-width: var(--container-max);
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: var(--container-pad);
+        padding-right: var(--container-pad);
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Typography */
+      h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-sans);
+        color: var(--text-primary);
+        font-weight: 700;
+        line-height: 1.18;
+        letter-spacing: -0.025em;
+      }
+
+      h1 { font-size: clamp(2.2rem, 5.2vw, 3.8rem); font-weight: 800; }
+      h2 { font-size: clamp(1.7rem, 3.4vw, 2.5rem); font-weight: 700; }
+      h3 { font-size: clamp(1.2rem, 2vw, 1.55rem); font-weight: 600; }
+      h4 { font-size: 1.1rem; font-weight: 600; }
+
+      p {
+        color: var(--text-secondary);
+        font-size: 1.02rem;
+        line-height: 1.68;
+        margin-bottom: 1.25rem;
+      }
+
+      p:last-child { margin-bottom: 0; }
+      a { color: inherit; text-decoration: none; transition: all var(--transition-fast); }
+
+      .mono {
+        font-family: var(--font-mono);
+        letter-spacing: -0.01em;
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, var(--text-primary) 30%, var(--accent) 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 0.85rem;
+      }
+
+      .kicker::before {
+        content: "";
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background-color: var(--accent);
+      }
+
+      .meta-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        padding: 0.22rem 0.65rem;
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        background: var(--bg-subtle);
+        border: 1px solid var(--line);
+        color: var(--text-muted);
+        border-radius: var(--radius-xs);
+        transition: border-color var(--transition-fast), color var(--transition-fast);
+      }
+
+      .meta-tag:hover {
+        border-color: var(--line-strong);
+        color: var(--text-primary);
+      }
+
+      .section-intro {
+        font-size: 1.1rem;
+        line-height: 1.65;
+        color: var(--text-secondary);
+        max-width: 74ch;
+        margin-bottom: 2.2rem;
+      }
+
+      /* TELEMETRY BAR */
+      .telemetry-bar {
+        background: var(--bg-alt);
+        border-bottom: 1px solid var(--line);
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        color: var(--text-muted);
+        padding: 0.4rem 0;
+        position: relative;
+        z-index: 30;
+      }
+
+      .telemetry-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+      }
+
+      .telemetry-group {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+      }
+
+      .telemetry-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+      }
+
+      .pulse-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: var(--accent-mint);
+        box-shadow: 0 0 8px var(--accent-mint);
+        animation: pulseAnimation 2s infinite ease-in-out;
+      }
+
+      @keyframes pulseAnimation {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.35; transform: scale(0.8); }
+      }
+
+      /* HEADER & NAVIGATION */
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: color-mix(in srgb, var(--bg) 88%, transparent);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--line);
+        transition: background-color var(--transition-normal), border-color var(--transition-normal);
+      }
+
+      .nav-shell {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: var(--header-height);
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+      }
+
+      .brand-symbol-wrap {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 1px solid var(--line-strong);
+        background: var(--surface);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .brand-logo-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .brand-text-group {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .brand-title {
+        font-family: var(--font-sans);
+        font-size: 1.05rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--text-primary);
+        line-height: 1.2;
+      }
+
+      .brand-sub {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        font-weight: 500;
+        color: var(--accent);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .desktop-nav {
+        display: flex;
+        align-items: center;
+        gap: 1.4rem;
+      }
+
+      .nav-link {
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        position: relative;
+        padding: 0.3rem 0;
+      }
+
+      .nav-link:hover, .nav-link.active {
+        color: var(--text-primary);
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 2px;
+        background: var(--accent);
+        transition: width var(--transition-fast);
+      }
+
+      .nav-link:hover::after, .nav-link.active::after {
+        width: 100%;
+      }
+
+      .header-controls {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+      }
+
+      .btn-icon {
+        width: 38px;
+        height: 38px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--surface);
+        border: 1px solid var(--line);
+        color: var(--text-primary);
+        border-radius: var(--radius-xs);
+        cursor: pointer;
+        transition: border-color var(--transition-fast), background-color var(--transition-fast), transform var(--transition-fast);
+      }
+
+      .btn-icon:hover {
+        border-color: var(--line-strong);
+        background: var(--bg-subtle);
+        transform: translateY(-1px);
+      }
+
+      .btn-icon svg {
+        width: 17px;
+        height: 17px;
+        fill: currentColor;
+      }
+
+      /* BUTTONS */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        padding: 0.75rem 1.45rem;
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        border-radius: var(--radius-xs);
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition: all var(--transition-fast);
+        text-align: center;
+        font-family: var(--font-sans);
+      }
+
+      .btn-primary {
+        background: var(--text-primary);
+        color: var(--bg);
+        border-color: var(--text-primary);
+      }
+
+      .btn-primary:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #ffffff;
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-glow);
+      }
+
+      .btn-secondary {
+        background: var(--surface);
+        color: var(--text-primary);
+        border-color: var(--line-strong);
+      }
+
+      .btn-secondary:hover {
+        border-color: var(--text-primary);
+        background: var(--bg-subtle);
+        transform: translateY(-2px);
+      }
+
+      .btn-company {
+        background: var(--surface);
+        color: var(--text-primary);
+        border: 1px solid var(--accent);
+        box-shadow: 0 0 15px rgba(81, 63, 246, 0.12);
+      }
+
+      .btn-company:hover {
+        background: var(--accent);
+        color: #ffffff;
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-glow);
+      }
+
+      .btn-sm {
+        padding: 0.45rem 0.9rem;
+        font-size: 0.8rem;
+      }
+
+      .btn-mono {
+        font-family: var(--font-mono);
+        letter-spacing: 0.02em;
+      }
+
+      /* HERO SECTION */
+      .hero {
+        padding: clamp(2.5rem, 6vw, 5rem) 0 3.5rem;
+        border-bottom: 1px solid var(--line);
+        position: relative;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: clamp(2rem, 4vw, 4rem);
+        align-items: center;
+      }
+
+      .hero-badge-row {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.25rem;
+      }
+
+      .hero-h1 {
+        margin-bottom: 1.35rem;
+      }
+
+      .hero-desc {
+        font-size: 1.12rem;
+        line-height: 1.7;
+        color: var(--text-secondary);
+        margin-bottom: 1.8rem;
+      }
+
+      .hero-cta-group {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+        flex-wrap: wrap;
+        margin-bottom: 2.2rem;
+      }
+
+      .hero-stats-strip {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.75rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--line);
+      }
+
+      .hero-stat-card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        padding: 0.85rem 1rem;
+        border-radius: var(--radius-xs);
+        transition: border-color var(--transition-fast), transform var(--transition-fast);
+      }
+
+      .hero-stat-card:hover {
+        border-color: var(--line-strong);
+        transform: translateY(-2px);
+      }
+
+      .hero-stat-num {
+        font-family: var(--font-mono);
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        line-height: 1.2;
+      }
+
+      .hero-stat-label {
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        margin-top: 0.25rem;
+      }
+
+      /* HERO PORTRAIT LAB CARD */
+      .hero-visual-col {
+        position: relative;
+      }
+
+      .portrait-lab-frame {
+        background: var(--surface);
+        border: 1px solid var(--line-strong);
+        border-radius: var(--radius-sm);
+        padding: 1.25rem;
+        position: relative;
+        box-shadow: var(--shadow-md);
+        transition: border-color var(--transition-normal);
+      }
+
+      .portrait-lab-frame::before {
+        content: "+";
+        position: absolute;
+        top: -8px;
+        left: -8px;
+        font-family: var(--font-mono);
+        font-size: 1rem;
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      .portrait-lab-frame::after {
+        content: "+";
+        position: absolute;
+        bottom: -8px;
+        right: -8px;
+        font-family: var(--font-mono);
+        font-size: 1rem;
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      .portrait-header-bar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        margin-bottom: 0.9rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .portrait-stage {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 4 / 4.8;
+        background: linear-gradient(180deg, var(--bg-alt) 0%, var(--surface-alt) 100%);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-xs);
+        overflow: hidden;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+      }
+
+      .portrait-stage-grid {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        background-image: 
+          linear-gradient(to right, rgba(81, 63, 246, 0.07) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(81, 63, 246, 0.07) 1px, transparent 1px);
+        background-size: 24px 24px;
+      }
+
+      .portrait-img {
+        position: relative;
+        z-index: 2;
+        max-height: 96%;
+        max-width: 90%;
+        object-fit: contain;
+        filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.15));
+        transition: opacity var(--transition-fast), transform var(--transition-smooth);
+      }
+
+      .portrait-img:hover {
+        transform: scale(1.02);
+      }
+
+      .portrait-hud-overlay {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 3;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0.75rem;
+      }
+
+      .hud-reticle-top {
+        display: flex;
+        justify-content: space-between;
+        font-family: var(--font-mono);
+        font-size: 0.62rem;
+        color: var(--accent);
+        opacity: 0.85;
+      }
+
+      .hud-reticle-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        color: var(--text-primary);
+        background: color-mix(in srgb, var(--surface) 88%, transparent);
+        backdrop-filter: blur(8px);
+        padding: 0.4rem 0.65rem;
+        border: 1px solid var(--line);
+        border-radius: var(--radius-xs);
+      }
+
+      .portrait-footer-actions {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 0.85rem;
+      }
+
+      .photo-toggle-btn {
+        background: transparent;
+        border: 1px dashed var(--line-strong);
+        color: var(--text-secondary);
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        padding: 0.3rem 0.65rem;
+        border-radius: var(--radius-xs);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+      }
+
+      .photo-toggle-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+        background: var(--bg-subtle);
+      }
+
+      /* COMPANY HIGHLIGHT SECTION */
+      .company-spotlight-section {
+        padding: 4.5rem 0;
+        border-bottom: 1px solid var(--line);
+        background: linear-gradient(180deg, var(--bg-subtle) 0%, var(--bg) 100%);
+        position: relative;
+      }
+
+      .company-card {
+        background: var(--surface);
+        border: 1.5px solid var(--accent);
+        border-radius: var(--radius-sm);
+        padding: clamp(1.8rem, 4vw, 3rem);
+        position: relative;
+        box-shadow: var(--shadow-glow);
+        overflow: hidden;
+      }
+
+      .company-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 280px;
+        height: 280px;
+        background: radial-gradient(circle at 100% 0%, rgba(81, 63, 246, 0.12) 0%, transparent 70%);
+        pointer-events: none;
+      }
+
+      .company-header-grid {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 1.5rem;
+        align-items: center;
+        margin-bottom: 1.8rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .company-emblem {
+        width: 72px;
+        height: 72px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 2px solid var(--line-strong);
+        background: #ffffff;
+        box-shadow: var(--shadow-sm);
+      }
+
+      .company-emblem img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .company-name-group h2 {
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        margin-bottom: 0.2rem;
+      }
+
+      .company-tagline {
+        font-family: var(--font-mono);
+        font-size: 0.85rem;
+        color: var(--accent);
+        font-weight: 600;
+        letter-spacing: 0.02em;
+      }
+
+      .cin-badge-box {
+        background: var(--bg-subtle);
+        border: 1px solid var(--line-strong);
+        padding: 0.6rem 0.9rem;
+        border-radius: var(--radius-xs);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 0.2rem;
+      }
+
+      .cin-label {
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .cin-code {
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        letter-spacing: 0.04em;
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      .copy-btn {
+        background: transparent;
+        border: none;
+        color: var(--text-muted);
+        cursor: pointer;
+        padding: 2px;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .copy-btn:hover {
+        color: var(--accent);
+      }
+
+      .company-story-p {
+        font-size: 1.08rem;
+        line-height: 1.75;
+        color: var(--text-secondary);
+        margin-bottom: 2rem;
+      }
+
+      .company-story-p strong {
+        color: var(--text-primary);
+      }
+
+      .company-pillars-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.25rem;
+        margin-bottom: 2.2rem;
+      }
+
+      .pillar-card {
+        background: var(--surface-alt);
+        border: 1px solid var(--line);
+        padding: 1.25rem;
+        border-radius: var(--radius-xs);
+        transition: border-color var(--transition-fast), transform var(--transition-fast);
+      }
+
+      .pillar-card:hover {
+        border-color: var(--line-strong);
+        transform: translateY(-2px);
+      }
+
+      .pillar-num {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        font-weight: 700;
+        color: var(--accent);
+        margin-bottom: 0.4rem;
+      }
+
+      .pillar-title {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+      }
+
+      .pillar-desc {
+        font-size: 0.92rem;
+        color: var(--text-secondary);
+        line-height: 1.55;
+      }
+
+      .company-action-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1rem;
+        padding-top: 1.5rem;
+        border-top: 1px solid var(--line);
+      }
+
+      .company-links-group {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .meta-indicator {
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      /* RESEARCH SECTION */
+      .section-block {
+        padding: 5rem 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .section-header {
+        margin-bottom: 3rem;
+      }
+
+      .research-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      .research-card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: border-color var(--transition-normal), box-shadow var(--transition-normal), transform var(--transition-fast);
+      }
+
+      .research-card:hover {
+        border-color: var(--line-strong);
+        box-shadow: var(--shadow-md);
+        transform: translateY(-3px);
+      }
+
+      .research-media-wrapper {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 16 / 9;
+        background: #0d1318;
+        overflow: hidden;
+        cursor: zoom-in;
+      }
+
+      .research-media-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform var(--transition-smooth);
+      }
+
+      .research-card:hover .research-media-img {
+        transform: scale(1.03);
+      }
+
+      .research-badge-overlay {
+        position: absolute;
+        top: 0.75rem;
+        left: 0.75rem;
+        background: rgba(10, 14, 17, 0.85);
+        color: #ffffff;
+        font-family: var(--font-mono);
+        font-size: 0.68rem;
+        padding: 0.25rem 0.6rem;
+        border-radius: var(--radius-xs);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(6px);
+      }
+
+      .research-zoom-hint {
+        position: absolute;
+        bottom: 0.75rem;
+        right: 0.75rem;
+        background: rgba(10, 14, 17, 0.85);
+        color: #ffffff;
+        font-family: var(--font-mono);
+        font-size: 0.65rem;
+        padding: 0.25rem 0.55rem;
+        border-radius: var(--radius-xs);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        display: flex;
+        align-items: center;
+        gap: 0.35rem;
+        opacity: 0;
+        transition: opacity var(--transition-fast);
+      }
+
+      .research-media-wrapper:hover .research-zoom-hint {
+        opacity: 1;
+      }
+
+      .research-body {
+        padding: 1.8rem;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+      }
+
+      .research-kicker-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0.75rem;
+      }
+
+      .research-title {
+        font-size: 1.35rem;
+        margin-bottom: 0.85rem;
+      }
+
+      .research-text {
+        font-size: 0.96rem;
+        color: var(--text-secondary);
+        line-height: 1.62;
+        margin-bottom: 1.5rem;
+      }
+
+      .spec-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.6rem;
+        margin-bottom: 1.5rem;
+        padding: 0.85rem;
+        background: var(--bg-subtle);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-xs);
+      }
+
+      .spec-item {
+        font-family: var(--font-mono);
+        font-size: 0.74rem;
+        color: var(--text-muted);
+        display: flex;
+        flex-direction: column;
+      }
+
+      .spec-item span:first-child {
+        font-size: 0.65rem;
+        color: var(--text-faint);
+        text-transform: uppercase;
+      }
+
+      .spec-item span:last-child {
+        color: var(--text-primary);
+        font-weight: 600;
+        margin-top: 0.1rem;
+      }
+
+      .research-links-list {
+        margin-top: auto;
+        padding-top: 1.25rem;
+        border-top: 1px solid var(--line);
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      .drive-link-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.55rem 0.85rem;
+        background: var(--surface-alt);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-xs);
+        font-family: var(--font-mono);
+        font-size: 0.76rem;
+        font-weight: 500;
+        color: var(--text-primary);
+        transition: all var(--transition-fast);
+      }
+
+      .drive-link-item:hover {
+        background: var(--accent-light);
+        border-color: var(--accent);
+        color: var(--accent);
+        transform: translateX(3px);
+      }
+
+      .drive-link-item span:last-child {
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      /* PATENTS & APPLIED SECTION */
+      .applied-cards-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.75rem;
+      }
+
+      .applied-card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        padding: 1.85rem;
+        border-radius: var(--radius-sm);
+        display: flex;
+        flex-direction: column;
+        transition: border-color var(--transition-fast), transform var(--transition-fast);
+      }
+
+      .applied-card:hover {
+        border-color: var(--line-strong);
+        transform: translateY(-2px);
+      }
+
+      .applied-card.featured {
+        border: 1.5px solid var(--accent-mint);
+        background: linear-gradient(180deg, var(--surface) 0%, var(--surface-alt) 100%);
+      }
+
+      .applied-top-meta {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0.9rem;
+      }
+
+      .applied-title {
+        font-size: 1.28rem;
+        margin-bottom: 0.65rem;
+      }
+
+      .applied-desc {
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+        margin-bottom: 1.35rem;
+        line-height: 1.6;
+      }
+
+      .applied-footer {
+        margin-top: auto;
+        padding-top: 1.2rem;
+        border-top: 1px solid var(--line);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      /* TIMELINE SECTION */
+      .timeline-filter-bar {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 2.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .timeline-filter-btn {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        color: var(--text-muted);
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 0.4rem 0.85rem;
+        border-radius: var(--radius-xs);
+        cursor: pointer;
+        transition: all var(--transition-fast);
+      }
+
+      .timeline-filter-btn:hover {
+        border-color: var(--line-strong);
+        color: var(--text-primary);
+      }
+
+      .timeline-filter-btn.active {
+        background: var(--text-primary);
+        color: var(--bg);
+        border-color: var(--text-primary);
+      }
+
+      .timeline-wrapper {
+        position: relative;
+        padding-left: 2rem;
+      }
+
+      .timeline-wrapper::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 6px;
+        width: 2px;
+        background: var(--line-strong);
+      }
+
+      .timeline-entry {
+        position: relative;
+        margin-bottom: 2.2rem;
+        transition: opacity var(--transition-fast), transform var(--transition-fast);
+      }
+
+      .timeline-entry::before {
+        content: "";
+        position: absolute;
+        top: 6px;
+        left: -2rem;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--surface);
+        border: 3px solid var(--accent);
+        transform: translateX(-4.5px);
+        z-index: 2;
+      }
+
+      .timeline-entry.featured::before {
+        border-color: var(--accent-mint);
+        background: var(--accent-mint);
+        box-shadow: 0 0 10px var(--accent-mint);
+      }
+
+      .timeline-card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        padding: 1.4rem 1.6rem;
+        border-radius: var(--radius-xs);
+        transition: border-color var(--transition-fast), transform var(--transition-fast);
+      }
+
+      .timeline-card:hover {
+        border-color: var(--line-strong);
+        transform: translateX(4px);
+      }
+
+      .timeline-meta-line {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 0.6rem;
+        margin-bottom: 0.6rem;
+      }
+
+      .timeline-date {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        font-weight: 700;
+        color: var(--accent);
+        letter-spacing: 0.03em;
+      }
+
+      .timeline-heading {
+        font-size: 1.15rem;
+        margin-bottom: 0.45rem;
+        color: var(--text-primary);
+      }
+
+      .timeline-details {
+        font-size: 0.95rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      .timeline-links {
+        margin-top: 0.85rem;
+        display: flex;
+        gap: 0.75rem;
+        flex-wrap: wrap;
+      }
+
+      /* SKILLS & DOMAIN MATRIX */
+      .skills-matrix-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+
+      .matrix-card {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        padding: 1.5rem;
+        border-radius: var(--radius-xs);
+      }
+
+      .matrix-header {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin-bottom: 1rem;
+        padding-bottom: 0.6rem;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .matrix-title {
+        font-family: var(--font-mono);
+        font-size: 0.82rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--text-primary);
+      }
+
+      .chips-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+      }
+
+      .chip {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        padding: 0.22rem 0.55rem;
+        background: var(--bg-subtle);
+        border: 1px solid var(--line);
+        color: var(--text-secondary);
+        border-radius: var(--radius-xs);
+      }
+
+      /* DIRECT CONTACT & TERMINAL */
+      .contact-terminal-shell {
+        background: var(--surface);
+        border: 1.5px solid var(--line-strong);
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+      }
+
+      .terminal-top-bar {
+        background: var(--bg-alt);
+        padding: 0.65rem 1.25rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid var(--line);
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--text-muted);
+      }
+
+      .terminal-lights {
+        display: flex;
+        gap: 6px;
+      }
+
+      .terminal-light {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--line-strong);
+      }
+
+      .terminal-light.red { background: #ff5f56; }
+      .terminal-light.yellow { background: #ffbd2e; }
+      .terminal-light.green { background: #27c93f; }
+
+      .terminal-body {
+        padding: clamp(1.8rem, 4vw, 3rem);
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 2.5rem;
+      }
+
+      .contact-channels-list {
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+      }
+
+      .contact-channel-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.85rem 1.15rem;
+        background: var(--surface-alt);
+        border: 1px solid var(--line);
+        border-radius: var(--radius-xs);
+        transition: all var(--transition-fast);
+      }
+
+      .contact-channel-item:hover {
+        border-color: var(--accent);
+        background: var(--bg-subtle);
+        transform: translateX(4px);
+      }
+
+      .channel-meta {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .channel-name {
+        font-family: var(--font-mono);
+        font-size: 0.72rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+
+      .channel-val {
+        font-size: 0.98rem;
+        font-weight: 600;
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+        margin-top: 0.15rem;
+      }
+
+      .channel-action {
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      .terminal-side-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        background: var(--bg-subtle);
+        border: 1px solid var(--line);
+        padding: 1.5rem;
+        border-radius: var(--radius-xs);
+      }
+
+      .identity-strip {
+        font-family: var(--font-mono);
+        font-size: 0.78rem;
+        line-height: 1.7;
+        color: var(--text-secondary);
+      }
+
+      .identity-strip span {
+        color: var(--text-primary);
+        font-weight: 600;
+      }
+
+      /* FOOTER */
+      .site-footer {
+        padding: 2.5rem 0;
+        background: var(--bg-alt);
+        border-top: 1px solid var(--line);
+        font-family: var(--font-mono);
+        font-size: 0.75rem;
+        color: var(--text-muted);
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 1.25rem;
+      }
+
+      /* MODAL LIGHTBOX */
+      .modal-lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 999;
+        background: rgba(7, 11, 14, 0.88);
+        backdrop-filter: blur(12px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+      }
+
+      .modal-lightbox.active {
+        display: flex;
+      }
+
+      .lightbox-content {
+        max-width: 1080px;
+        width: 100%;
+        background: var(--surface);
+        border: 1px solid var(--line-strong);
+        border-radius: var(--radius-sm);
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+      }
+
+      .lightbox-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 1.25rem;
+        background: var(--bg-alt);
+        border-bottom: 1px solid var(--line);
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        color: var(--text-primary);
+      }
+
+      .lightbox-img-box {
+        width: 100%;
+        max-height: 75vh;
+        overflow: auto;
+        background: #000000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .lightbox-img-box img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .lightbox-caption {
+        padding: 1rem 1.25rem;
+        font-size: 0.9rem;
+        color: var(--text-secondary);
+        border-top: 1px solid var(--line);
+      }
+
+      .close-lightbox {
+        background: transparent;
+        border: none;
+        color: var(--text-primary);
+        font-family: var(--font-mono);
+        font-size: 1.2rem;
+        cursor: pointer;
+        padding: 0 0.5rem;
+      }
+
+      /* TOAST NOTIFICATION */
+      #toast-notify {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 1000;
+        background: var(--text-primary);
+        color: var(--bg);
+        font-family: var(--font-mono);
+        font-size: 0.8rem;
+        padding: 0.75rem 1.25rem;
+        border-radius: var(--radius-xs);
+        box-shadow: var(--shadow-lg);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        opacity: 0;
+        transform: translateY(12px);
+        pointer-events: none;
+        transition: opacity var(--transition-fast), transform var(--transition-fast);
+      }
+
+      #toast-notify.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* MOBILE DRAWER */
+      .mobile-drawer {
+        position: fixed;
+        top: calc(var(--header-height) + 1.8rem);
+        left: 0;
+        right: 0;
+        background: var(--surface);
+        border-bottom: 1px solid var(--line);
+        padding: 1.5rem var(--container-pad);
+        display: none;
+        flex-direction: column;
+        gap: 1rem;
+        z-index: 99;
+        box-shadow: var(--shadow-lg);
+      }
+
+      .mobile-drawer.open {
+        display: flex;
+      }
+
+      /* RESPONSIVENESS */
+      @media (max-width: 992px) {
+        .hero-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .research-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .company-header-grid {
+          grid-template-columns: auto 1fr;
+        }
+
+        .cin-badge-box {
+          grid-column: span 2;
+          align-items: flex-start;
+        }
+
+        .company-pillars-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .applied-cards-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .skills-matrix-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .terminal-body {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-stats-strip {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .desktop-nav {
+          display: none;
         }
       }
-    }
-  </script>
 
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+      @media (max-width: 640px) {
+        .telemetry-bar {
+          display: none;
+        }
+        .hero-stats-strip {
+          grid-template-columns: 1fr;
+        }
+        .hero-cta-group {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .hero-cta-group .btn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Skip to main content -->
+    <a href="#main-content" style="position: absolute; top: -100px; left: 1rem; z-index: 999; background: var(--text-primary); color: var(--bg); padding: 0.5rem 1rem;" onfocus="this.style.top='1rem'" onblur="this.style.top='-100px'">Skip to content</a>
 
-  <style>
-    body {
-      background-color: #0b130e;
-      color: #f1f5f3;
-    }
-
-    .editorial-bg {
-      background-image: 
-        radial-gradient(ellipse at 15% 10%, rgba(45, 84, 64, 0.28) 0%, transparent 60%),
-        radial-gradient(ellipse at 85% 25%, rgba(194, 59, 86, 0.16) 0%, transparent 55%),
-        radial-gradient(ellipse at 50% 85%, rgba(39, 63, 51, 0.22) 0%, transparent 65%);
-    }
-
-    .card-aesthetic {
-      background: rgba(16, 26, 20, 0.75);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(163, 199, 181, 0.12);
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-
-    .card-aesthetic:hover {
-      background: rgba(20, 34, 27, 0.85);
-      border-color: rgba(225, 82, 111, 0.35);
-      transform: translateY(-3px);
-      box-shadow: 0 16px 36px -12px rgba(11, 19, 14, 0.8), 0 0 24px -6px rgba(194, 59, 86, 0.15);
-    }
-
-    /* Adham Dannaway Split Canvas Styling */
-    .split-wrapper {
-      position: relative;
-      width: 100%;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(163, 199, 181, 0.15);
-      cursor: col-resize;
-      user-select: none;
-      touch-action: none;
-    }
-
-    .split-divider {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: rgba(255, 255, 255, 0.9);
-      box-shadow: 0 0 12px rgba(255, 255, 255, 0.8), 0 0 24px rgba(225, 82, 111, 0.5);
-      pointer-events: none;
-      transform: translateX(-50%);
-      transition: opacity 0.2s ease;
-      z-index: 20;
-    }
-
-    .split-handle {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 32px;
-      height: 32px;
-      border-radius: 9999px;
-      background: #ffffff;
-      color: #0b130e;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
-      border: 1px solid rgba(0, 0, 0, 0.1);
-    }
-
-    /* Custom elegant scrollbar */
-    ::-webkit-scrollbar {
-      width: 7px;
-    }
-    ::-webkit-scrollbar-track {
-      background: #09110d;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #1c2e25;
-      border-radius: 4px;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #273f33;
-    }
-  </style>
-</head>
-
-<body class="editorial-bg min-h-screen font-sans antialiased selection:bg-rosewood-500 selection:text-white relative overflow-x-hidden">
-
-  <!-- Toast Notification -->
-  <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-2.5 bg-botanical-900 border border-rosewood-500/40 text-white px-5 py-3 rounded-2xl shadow-2xl text-sm">
-    <i data-lucide="check" class="w-4 h-4 text-botanical-200"></i>
-    <span id="toast-text">Email copied to clipboard</span>
-  </div>
-
-  <!-- Header / Navigation -->
-  <header class="sticky top-0 z-40 w-full backdrop-blur-xl bg-botanical-950/80 border-b border-botanical-800/60">
-    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
-      
-      <!-- Brand Monogram -->
-      <a href="#" class="flex items-center gap-3 group">
-        <div class="w-10 h-10 rounded-full border border-botanical-300/30 flex items-center justify-center bg-botanical-900 group-hover:border-rosewood-400/60 transition-all">
-          <span class="font-serif italic font-bold text-base text-white group-hover:text-rosewood-300 transition-colors">R</span>
-        </div>
-        <div class="flex flex-col">
-          <span class="font-serif tracking-normal text-lg font-medium text-white group-hover:text-botanical-100 transition-colors">
-            Racha Sumanth
+    <!-- TELEMETRY STATUS BAR (ECHOING SWADESHI.DEV) -->
+    <aside class="telemetry-bar" aria-label="System telemetry">
+      <div class="container telemetry-inner">
+        <div class="telemetry-group">
+          <span class="telemetry-item">
+            <span class="pulse-dot" aria-hidden="true"></span>
+            <span>SYSTEM // RESEARCHER: RACHA SUMANTH</span>
           </span>
-          <span class="text-[11px] font-mono tracking-wider uppercase text-botanical-300/80">
-            rachasumanth.me
-          </span>
+          <span class="telemetry-item mono">// COORD: 17.3850°N 78.4867°E (HYD)</span>
+          <span class="telemetry-item mono">// ENTITY: SWADESHI AI PVT LTD</span>
         </div>
-      </a>
-
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-botanical-200/80">
-        <a href="#hero-feature" class="hover:text-white transition-colors">Identity</a>
-        <a href="#work" class="hover:text-white transition-colors">Selected Work</a>
-        <a href="#research" class="hover:text-white transition-colors">Research</a>
-        <a href="#stack" class="hover:text-white transition-colors">Stack</a>
-        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
-      </nav>
-
-      <!-- Right Action Pill -->
-      <div class="flex items-center gap-3">
-        <div class="hidden sm:inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-botanical-900/90 border border-botanical-700/60 text-botanical-200 text-xs font-mono">
-          <span class="w-1.5 h-1.5 rounded-full bg-rosewood-400"></span>
-          <span>Available for work</span>
+        <div class="telemetry-group">
+          <span class="telemetry-item mono" id="telem-coords">PTR: [X:0000 Y:0000]</span>
+          <span class="telemetry-item mono" id="telem-clock">00:00:00 IST</span>
         </div>
+      </div>
+    </aside>
 
-        <a href="https://github.com/rachasathish55-eng" target="_blank" rel="noopener noreferrer" 
-           class="p-2.5 rounded-full bg-botanical-900 border border-botanical-700/70 hover:border-white text-botanical-100 hover:text-white transition-colors"
-           title="GitHub Profile">
-          <i data-lucide="github" class="w-4 h-4"></i>
+    <!-- SITE HEADER & NAVIGATION -->
+    <header class="site-header">
+      <div class="container nav-shell">
+        <a class="brand" href="/" aria-label="Racha Sumanth Home">
+          <div class="brand-symbol-wrap">
+            <img src="assets/images/swadeshi-logo.jpg" alt="Swadeshi AI Emblem" class="brand-logo-img" />
+          </div>
+          <div class="brand-text-group">
+            <span class="brand-title">Racha Sumanth</span>
+            <span class="brand-sub">Founder @ Swadeshi AI</span>
+          </div>
         </a>
 
-        <!-- Mobile Menu Toggle Button -->
-        <button id="menu-btn" class="md:hidden p-2 text-botanical-200 hover:text-white focus:outline-none">
-          <i data-lucide="menu" class="w-5 h-5"></i>
-        </button>
-      </div>
-    </div>
+        <!-- Desktop Navigation -->
+        <nav class="desktop-nav" aria-label="Primary Navigation">
+          <a class="nav-link active" href="#hero">Overview</a>
+          <a class="nav-link" href="#company">Swadeshi AI</a>
+          <a class="nav-link" href="#research">Deep-Tech R&amp;D</a>
+          <a class="nav-link" href="#patents">Patents &amp; Apps</a>
+          <a class="nav-link" href="#timeline">Chronology</a>
+          <a class="nav-link" href="#skills">Telemetry</a>
+          <a class="nav-link" href="#contact">Contact</a>
+        </nav>
 
-    <!-- Mobile Dropdown Menu -->
-    <div id="mobile-menu" class="hidden md:hidden border-b border-botanical-800 bg-botanical-950/98 px-6 py-5 space-y-4 text-sm font-medium text-botanical-200">
-      <a href="#hero-feature" class="block hover:text-white">Identity</a>
-      <a href="#work" class="block hover:text-white">Selected Work</a>
-      <a href="#research" class="block hover:text-white">Research</a>
-      <a href="#stack" class="block hover:text-white">Tech Stack</a>
-      <a href="#contact" class="block hover:text-white">Contact</a>
-    </div>
-  </header>
-
-  <main class="max-w-6xl mx-auto px-6 pt-12 pb-28 space-y-32">
-
-    <!-- ADHAM DANNAWAY STYLE SPLIT HERO SECTION -->
-    <section id="hero-feature" class="space-y-10 pt-4">
-      
-      <!-- Top Subtitle Badges -->
-      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rosewood-950/80 border border-rosewood-500/30 text-rosewood-300 text-xs font-mono tracking-wide">
-          <span class="w-2 h-2 rounded-full bg-rosewood-400"></span>
-          <span>Security Researcher & Systems Architect</span>
-        </div>
-
-        <div class="text-xs font-mono text-botanical-300/80 flex items-center gap-2">
-          <i data-lucide="move-horizontal" class="w-3.5 h-3.5 text-rosewood-300"></i>
-          <span>Hover or drag canvas to explore dual perspectives</span>
-        </div>
-      </div>
-
-      <!-- Hero 3-Column Split Display -->
-      <div class="grid lg:grid-cols-12 gap-8 items-center">
-        
-        <!-- Left Column: Designer / Architect Persona -->
-        <div id="designer-trigger" class="lg:col-span-3 text-left space-y-3 cursor-pointer group order-2 lg:order-1 transition-opacity duration-300">
-          <h2 class="font-serif text-3xl sm:text-4xl text-white font-medium tracking-tight group-hover:text-rosewood-300 transition-colors">
-            architect
-          </h2>
-          <p class="text-sm text-botanical-200/80 font-light leading-relaxed">
-            Systems blueprint designer specializing in firmware security, parser boundaries & exploit models.
-          </p>
-          <div class="inline-flex items-center gap-1.5 text-xs font-mono text-rosewood-300 pt-1 group-hover:underline">
-            <span>Explore art blueprint</span>
-            <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
-          </div>
-        </div>
-
-        <!-- Center: Interactive Split Canvas -->
-        <div class="lg:col-span-6 order-1 lg:order-2">
-          <div id="split-box" class="split-wrapper relative" style="aspect-ratio: 1676 / 938;">
-            
-            <!-- Base Layer: Blueprint Art -->
-            <img id="img-art" 
-                 src="assets/images/portrait-art.webp" 
-                 alt="Sumanth Blueprint Illustration" 
-                 class="absolute inset-0 w-full h-full object-cover select-none pointer-events-none">
-
-            <!-- Top Layer: Real Portrait (Clipped dynamically) -->
-            <div id="img-real-clip" class="absolute inset-0 overflow-hidden pointer-events-none" style="clip-path: polygon(40.57% 0%, 100% 0%, 100% 100%, 40.57% 100%);">
-              <img id="img-real" 
-                   src="assets/images/portrait-real.webp" 
-                   alt="Sumanth Real Portrait" 
-                   class="absolute inset-0 w-full h-full object-cover select-none pointer-events-none">
-            </div>
-
-            <!-- Vertical Dividing Line & Handle -->
-            <div id="split-line" class="split-divider" style="left: 40.57%;">
-              <div class="split-handle">
-                <i data-lucide="chevrons-left-right" class="w-4 h-4 text-botanical-950"></i>
-              </div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Right Column: Coder Persona -->
-        <div id="coder-trigger" class="lg:col-span-3 text-left lg:text-right space-y-3 cursor-pointer group order-3 transition-opacity duration-300">
-          <h2 class="font-serif text-3xl sm:text-4xl text-white font-medium tracking-tight group-hover:text-rosewood-300 transition-colors">
-            &lt;coder&gt;
-          </h2>
-          <p class="text-sm text-botanical-200/80 font-light leading-relaxed">
-            Systems developer who writes clean, verifiable, and resilient low-level software.
-          </p>
-          <div class="inline-flex items-center gap-1.5 text-xs font-mono text-rosewood-300 pt-1 group-hover:underline">
-            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
-            <span>Reveal real portrait</span>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Quick Action Buttons Below Hero -->
-      <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
-        <a href="#work" 
-           class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-white text-botanical-950 font-medium text-sm hover:bg-botanical-100 transition-all shadow-lg hover:shadow-white/10">
-          <span>Explore Projects</span>
-          <i data-lucide="arrow-down" class="w-4 h-4"></i>
-        </a>
-
-        <button onclick="copyEmail()" 
-           class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-botanical-900/90 hover:bg-botanical-850 border border-botanical-700/80 hover:border-rosewood-400/60 text-white font-medium text-sm transition-all">
-          <i data-lucide="copy" class="w-4 h-4 text-rosewood-400"></i>
-          <span>Copy Contact</span>
-        </button>
-      </div>
-
-    </section>
-
-    <!-- Key Metrics Highlight Strip -->
-    <section class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <div class="card-aesthetic p-6 rounded-2xl text-center space-y-1">
-        <div class="text-3xl font-serif font-bold text-white">15+</div>
-        <div class="text-xs font-mono text-botanical-300 uppercase tracking-wider">Bounties & CVEs</div>
-      </div>
-      <div class="card-aesthetic p-6 rounded-2xl text-center space-y-1">
-        <div class="text-3xl font-serif font-bold text-rosewood-300">20+</div>
-        <div class="text-xs font-mono text-botanical-300 uppercase tracking-wider">Firmware Reverses</div>
-      </div>
-      <div class="card-aesthetic p-6 rounded-2xl text-center space-y-1">
-        <div class="text-3xl font-serif font-bold text-white">100%</div>
-        <div class="text-xs font-mono text-botanical-300 uppercase tracking-wider">Proof Gated</div>
-      </div>
-      <div class="card-aesthetic p-6 rounded-2xl text-center space-y-1">
-        <div class="text-3xl font-serif font-bold text-rosewood-300">&lt;48h</div>
-        <div class="text-xs font-mono text-botanical-300 uppercase tracking-wider">Triage Turnaround</div>
-      </div>
-    </section>
-
-    <!-- Selected Work / Projects -->
-    <section id="work" class="space-y-10">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-botanical-800/80 pb-5">
-        <div>
-          <span class="text-xs font-mono uppercase tracking-widest text-rosewood-400">Curated Work</span>
-          <h2 class="text-3xl font-serif font-medium text-white mt-1">Featured Systems & Tools</h2>
-        </div>
-        <div class="text-xs font-mono text-botanical-300">
-          Open Source & Tooling
-        </div>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        
-        <!-- Project 1 -->
-        <div class="card-aesthetic p-7 rounded-3xl space-y-5 flex flex-col justify-between">
-          <div class="space-y-3.5">
-            <div class="w-11 h-11 rounded-2xl bg-botanical-850 border border-botanical-700/60 flex items-center justify-center text-botanical-200">
-              <i data-lucide="cpu" class="w-5 h-5"></i>
-            </div>
-            <h3 class="text-lg font-serif font-semibold text-white">QFireHose Custom Flasher</h3>
-            <p class="text-xs sm:text-sm text-botanical-200/80 leading-relaxed font-light">
-              Autonomous Qualcomm & Spreadtrum EDL firmware flasher with partition reconstruction, recovery routines, and serial verification.
-            </p>
-          </div>
-          <div class="space-y-4 pt-2">
-            <div class="flex flex-wrap gap-2 text-[11px] font-mono text-botanical-300">
-              <span class="px-2.5 py-1 rounded-full bg-botanical-900 border border-botanical-800">C++</span>
-              <span class="px-2.5 py-1 rounded-full bg-botanical-900 border border-botanical-800">Linux Kernel</span>
-              <span class="px-2.5 py-1 rounded-full bg-botanical-900 border border-botanical-800">EDL Protocol</span>
-            </div>
-            <a href="https://github.com/rachasathish55-eng" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-rosewood-300 hover:text-white font-medium transition-colors">
-              <span>Inspect Code</span>
-              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="card-aesthetic p-7 rounded-3xl space-y-5 flex flex-col justify-between">
-          <div class="space-y-3.5">
-            <div class="w-11 h-11 rounded-2xl bg-rosewood-950 border border-rosewood-800/60 flex items-center justify-center text-rosewood-300">
-              <i data-lucide="shield" class="w-5 h-5"></i>
-            </div>
-            <h3 class="text-lg font-serif font-semibold text-white">CH-Hunt Fuzzing Engine</h3>
-            <p class="text-xs sm:text-sm text-botanical-200/80 leading-relaxed font-light">
-              Differential SQL parser generator and AST mutation fuzzer designed to unearth syntax-boundary vulnerabilities in enterprise analytics servers.
-            </p>
-          </div>
-          <div class="space-y-4 pt-2">
-            <div class="flex flex-wrap gap-2 text-[11px] font-mono text-botanical-300">
-              <span class="px-2.5 py-1 rounded-full bg-botanical-900 border border-botanical-800">Python</span>
-              <span class="px-2.5 py-1 rounded-full bg-botanical-900 border border-botanical-800">ASAN</span>
-              <span class="px-2.5 py-1 rounded-full bg-botanical-900 border border-botanical-800">LLVM</span>
-            </div>
-            <a href="https://github.com/rachasathish55-eng" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-rosewood-300 hover:text-white font-medium transition-colors">
-              <span>Inspect Code</span>
-              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="card-aesthetic p-7 rounded-3xl space-y-5 flex flex-col justify-between">
-          <div class="space-y-3.5">
-            <div class="w-11 h-11 rounded-2xl bg-botanical-850 border border-botanical-700/60 flex items-center justify-center text-white">
-              <i data-lucide="bot" class="w-5 h-5"></i>
-            </div>
-            <h3 class="text-lg font-serif font-semibold text-white">Agentic Bug Hunter Suites</h3>
-            <p class="text-xs sm:text-sm text-botanical-200/80 leading-relaxed font-light">
-              Modular skill suites for Antigravity & LLM tools, automating multi-source CVE mapping and wire-level exploit verification.
-            </p>
-          </div>
-          <div class="space-y-4 pt-2">
-            <div class="flex flex-wrap gap-2 text-[11px] font-mono text-botanical-300">
-              <span class="px-2.5 py-1 rounded-full bg-botanical-900 border border-botanical-800">TypeScript</span>
-              <span class="px-2.5 py-1 rounded-full bg-botanical-900 border border-botanical-800">CLI</span>
-              <span class="px-2.5 py-1 rounded-full bg-botanical-900 border border-botanical-800">Automation</span>
-            </div>
-            <a href="https://github.com/rachasathish55-eng" target="_blank" class="inline-flex items-center gap-1.5 text-xs text-rosewood-300 hover:text-white font-medium transition-colors">
-              <span>Inspect Code</span>
-              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Research & Advisories Section -->
-    <section id="research" class="space-y-10">
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-botanical-800/80 pb-5">
-        <div>
-          <span class="text-xs font-mono uppercase tracking-widest text-botanical-300">Disclosures</span>
-          <h2 class="text-3xl font-serif font-medium text-white mt-1">Vulnerability Research</h2>
-        </div>
-        <div class="text-xs font-mono text-rosewood-300">
-          Responsible Disclosure
-        </div>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-6">
-        
-        <!-- Advisory 1 -->
-        <article class="card-aesthetic p-7 rounded-3xl space-y-4 flex flex-col justify-between">
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="px-3 py-1 rounded-full bg-rosewood-950 border border-rosewood-500/40 text-rosewood-300 font-mono text-xs font-semibold">
-                High / P2
-              </span>
-              <span class="text-xs font-mono text-botanical-400">Oct 2026</span>
-            </div>
-            <h3 class="text-xl font-serif font-semibold text-white leading-snug">
-              Unrestricted Privilege Escalation on Managed Distributed Engine
-            </h3>
-            <p class="text-xs sm:text-sm text-botanical-200/80 leading-relaxed font-light">
-              Discovered authentication boundary bypass enabling arbitrary backdoor administrator generation via unsanitized SQL control execution within multi-tenant instances.
-            </p>
-          </div>
-          <div class="pt-4 border-t border-botanical-800/60 flex items-center justify-between text-xs font-mono text-botanical-300">
-            <span>BAC, Auth-Bypass</span>
-            <span class="text-white">Resolved & Rewarded</span>
-          </div>
-        </article>
-
-        <!-- Advisory 2 -->
-        <article class="card-aesthetic p-7 rounded-3xl space-y-4 flex flex-col justify-between">
-          <div class="space-y-3">
-            <div class="flex items-center justify-between">
-              <span class="px-3 py-1 rounded-full bg-rosewood-950 border border-rosewood-500/40 text-rosewood-300 font-mono text-xs font-semibold">
-                Critical / 9.8
-              </span>
-              <span class="text-xs font-mono text-botanical-400">Aug 2026</span>
-            </div>
-            <h3 class="text-xl font-serif font-semibold text-white leading-snug">
-              UART Buffer Corruption via Cellular Baseband Controller
-            </h3>
-            <p class="text-xs sm:text-sm text-botanical-200/80 leading-relaxed font-light">
-              Identified remote heap buffer overflow in UART packet serialization routine leading to arbitrary peripheral execution and flash firmware overwrite.
-            </p>
-          </div>
-          <div class="pt-4 border-t border-botanical-800/60 flex items-center justify-between text-xs font-mono text-botanical-300">
-            <span>Firmware, Memory Safety</span>
-            <span class="text-white">Vendor Patched</span>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- Technical Skills / Stack Section -->
-    <section id="stack" class="space-y-10">
-      <div class="border-b border-botanical-800/80 pb-5">
-        <span class="text-xs font-mono uppercase tracking-widest text-rosewood-400">Toolkit</span>
-        <h2 class="text-3xl font-serif font-medium text-white mt-1">Capabilities & Architecture</h2>
-      </div>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-        
-        <!-- Category 1 -->
-        <div class="card-aesthetic p-6 rounded-3xl space-y-4">
-          <div class="flex items-center gap-2.5 text-white font-medium text-sm">
-            <span class="w-2 h-2 rounded-full bg-rosewood-400"></span>
-            <span>Security & Reversing</span>
-          </div>
-          <ul class="space-y-2 text-xs font-mono text-botanical-200/80">
-            <li>• Ghidra & IDA Pro</li>
-            <li>• Burp Suite Professional</li>
-            <li>• GDB / LLDB / ASAN</li>
-            <li>• AFL++ & Differential Fuzzing</li>
-            <li>• Binary Triage & Emulation</li>
-          </ul>
-        </div>
-
-        <!-- Category 2 -->
-        <div class="card-aesthetic p-6 rounded-3xl space-y-4">
-          <div class="flex items-center gap-2.5 text-white font-medium text-sm">
-            <span class="w-2 h-2 rounded-full bg-botanical-300"></span>
-            <span>Hardware & Firmware</span>
-          </div>
-          <ul class="space-y-2 text-xs font-mono text-botanical-200/80">
-            <li>• Qualcomm Sahara & Firehose</li>
-            <li>• Spreadtrum FDL Protocol</li>
-            <li>• UART / JTAG / SPI Hardware</li>
-            <li>• FreeRTOS & Embedded C</li>
-            <li>• Partition & Flash Recovery</li>
-          </ul>
-        </div>
-
-        <!-- Category 3 -->
-        <div class="card-aesthetic p-6 rounded-3xl space-y-4">
-          <div class="flex items-center gap-2.5 text-white font-medium text-sm">
-            <span class="w-2 h-2 rounded-full bg-white"></span>
-            <span>Languages & Systems</span>
-          </div>
-          <ul class="space-y-2 text-xs font-mono text-botanical-200/80">
-            <li>• C & Modern C++</li>
-            <li>• Rust & Python</li>
-            <li>• POSIX Shell / Fish / Bash</li>
-            <li>• SQL & Storage Internals</li>
-            <li>• Linux Kernel Tracing</li>
-          </ul>
-        </div>
-
-        <!-- Category 4 -->
-        <div class="card-aesthetic p-6 rounded-3xl space-y-4">
-          <div class="flex items-center gap-2.5 text-white font-medium text-sm">
-            <span class="w-2 h-2 rounded-full bg-rosewood-300"></span>
-            <span>Cloud & Automation</span>
-          </div>
-          <ul class="space-y-2 text-xs font-mono text-botanical-200/80">
-            <li>• Docker & Rootless Podman</li>
-            <li>• GitHub Actions Pipelines</li>
-            <li>• WireGuard & Cloudflare</li>
-            <li>• Custom AI Coding Agents</li>
-            <li>• Reproducible Harnesses</li>
-          </ul>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Contact & Footer Section -->
-    <section id="contact" class="card-aesthetic p-9 sm:p-14 rounded-3xl relative overflow-hidden">
-      
-      <!-- Subtle Rose Petal Glow in Corner -->
-      <div class="absolute -right-16 -bottom-16 w-72 h-72 bg-rosewood-500/15 rounded-full blur-3xl pointer-events-none"></div>
-
-      <div class="max-w-2xl space-y-6">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-botanical-900 border border-botanical-700 text-botanical-200 text-xs font-mono">
-          <span class="w-1.5 h-1.5 rounded-full bg-rosewood-400"></span>
-          <span>Initiate Contact</span>
-        </div>
-
-        <h2 class="text-3xl sm:text-4xl font-serif font-medium text-white tracking-tight">
-          Let’s examine systems or collaborate on research.
-        </h2>
-
-        <p class="text-botanical-200/80 text-sm sm:text-base leading-relaxed font-light">
-          Available for deep vulnerability audits, systems engineering, hardware recovery, or technical advising.
-        </p>
-
-        <div class="flex flex-wrap items-center gap-4 pt-3">
-          <a href="mailto:contact@rachasumanth.me" 
-             class="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-white text-botanical-950 font-semibold text-sm hover:bg-botanical-100 transition-all shadow-xl">
-            <i data-lucide="mail" class="w-4 h-4 text-botanical-950"></i>
-            <span>contact@rachasumanth.me</span>
+        <!-- Controls -->
+        <div class="header-controls">
+          <a
+            href="https://www.swadeshi.dev"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn btn-sm btn-company btn-mono"
+            style="gap: 0.35rem;"
+          >
+            <span>swadeshi.dev</span>
+            <span aria-hidden="true">↗</span>
           </a>
 
-          <button onclick="copyEmail()" 
-             class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-botanical-900/90 hover:bg-botanical-850 border border-botanical-700 text-white text-sm font-medium transition-all">
-            <i data-lucide="copy" class="w-4 h-4 text-rosewood-400"></i>
-            <span>Copy Address</span>
+          <!-- Theme Toggle Button -->
+          <button class="btn-icon" id="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle Theme">
+            <svg id="theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" />
+            </svg>
+            <svg id="theme-icon-sun" style="display: none;" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/>
+            </svg>
+          </button>
+
+          <!-- Mobile Toggle -->
+          <button class="btn-icon" id="mobile-toggle" type="button" aria-label="Open mobile menu" style="display: none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
           </button>
         </div>
       </div>
 
-      <!-- Footer Bottom -->
-      <div class="mt-16 pt-8 border-t border-botanical-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-botanical-400">
-        <div>
-          © <span id="current-year">2026</span> Racha Sumanth • <span class="text-rosewood-300">rachasumanth.me</span>
+      <!-- Mobile Navigation Drawer -->
+      <nav id="mobile-drawer" class="mobile-drawer" aria-label="Mobile Navigation">
+        <a class="nav-link" href="#hero" onclick="toggleMobile()">Overview</a>
+        <a class="nav-link" href="#company" onclick="toggleMobile()">Swadeshi AI</a>
+        <a class="nav-link" href="#research" onclick="toggleMobile()">Deep-Tech R&amp;D</a>
+        <a class="nav-link" href="#patents" onclick="toggleMobile()">Patents &amp; Apps</a>
+        <a class="nav-link" href="#timeline" onclick="toggleMobile()">Chronology</a>
+        <a class="nav-link" href="#skills" onclick="toggleMobile()">Telemetry</a>
+        <a class="nav-link" href="#contact" onclick="toggleMobile()">Contact</a>
+        <a href="https://www.swadeshi.dev" target="_blank" class="btn btn-primary btn-mono" style="margin-top: 0.5rem;">
+          Open swadeshi.dev ↗
+        </a>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <!-- ====================================================================
+           1. HERO SECTION
+           ==================================================================== -->
+      <section id="hero" class="hero" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <div class="hero-badge-row">
+              <span class="kicker">RESEARCH ARCHITECT / 001</span>
+              <span class="meta-tag">FOUNDER // SWADESHI AI</span>
+              <span class="meta-tag">PATENT #202541016797</span>
+              <span class="meta-tag">TELANGANA, INDIA</span>
+            </div>
+
+            <h1 id="hero-title" class="hero-h1">
+              Building Autonomous AI &amp; Next-Gen Systems <br />
+              <span class="gradient-text">From Silicon to Cognition.</span>
+            </h1>
+
+            <p class="hero-desc">
+              I am <strong>Racha Sumanth</strong>, an 18-year-old deep-tech researcher, systems engineer, and founder of
+              <strong>Swadeshi AI Private Limited</strong> (CIN: <code class="mono">U62099TS2026PTC212584</code>).
+              My work converges neuro-symbolic reasoning, recursive memory transformers, analog semiconductor architectures, and offensive cybersecurity.
+            </p>
+
+            <div class="hero-cta-group">
+              <a href="#company" class="btn btn-primary">
+                <span>Explore Swadeshi AI</span>
+                <span class="mono" aria-hidden="true">&rarr;</span>
+              </a>
+              <a href="#research" class="btn btn-secondary">
+                <span>Research Artifacts</span>
+                <span class="mono" aria-hidden="true">&darr;</span>
+              </a>
+              <a href="https://www.swadeshi.dev" target="_blank" rel="noopener noreferrer" class="btn btn-company btn-mono">
+                <span>swadeshi.dev</span>
+                <span aria-hidden="true">↗</span>
+              </a>
+            </div>
+
+            <!-- Social Links Strip (NO GITHUB LOGO AS REQUESTED) -->
+            <div style="display: flex; gap: 0.65rem; align-items: center; flex-wrap: wrap; margin-bottom: 2rem;">
+              <a
+                href="https://www.linkedin.com/in/racha-sumanth-a4b283441/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="meta-tag"
+                title="LinkedIn Profile"
+              >
+                <span style="font-weight: 700; color: #0a66c2;">in</span> LinkedIn Profile ↗
+              </a>
+              <a
+                href="https://x.com/Sumanth_bro"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="meta-tag"
+                title="X / Twitter Profile"
+              >
+                <span style="font-weight: 700;">𝕏</span> @Sumanth_bro ↗
+              </a>
+              <a
+                href="https://youtube.com/@santusta?si=vsMGXUAiPXdSbwID"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="meta-tag"
+                title="YouTube Channel"
+              >
+                <span style="color: #ff0000; font-weight: 700;">▶</span> @santusta (YouTube) ↗
+              </a>
+              <a href="tel:8331827178" class="meta-tag" title="Direct Telephone">
+                <span>📞</span> +91 83318 27178
+              </a>
+            </div>
+
+            <!-- Vital Technical Stats -->
+            <div class="hero-stats-strip" aria-label="Key Vital Statistics">
+              <div class="hero-stat-card">
+                <div class="hero-stat-num">18 YRS</div>
+                <div class="hero-stat-label">Born 05 Oct 2008</div>
+              </div>
+              <div class="hero-stat-card">
+                <div class="hero-stat-num">9.8 GPA</div>
+                <div class="hero-stat-label">Jawahar Nagar Pinion</div>
+              </div>
+              <div class="hero-stat-card">
+                <div class="hero-stat-num">RANK 4045</div>
+                <div class="hero-stat-label">POLYCET // GIOE Branch</div>
+              </div>
+              <div class="hero-stat-card">
+                <div class="hero-stat-num">CIN EST.</div>
+                <div class="hero-stat-label">Swadeshi AI Pvt Ltd</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hero Scientific Visual Card (Displaying Sumanth's Photo) -->
+          <div class="hero-visual-col">
+            <div class="portrait-lab-frame">
+              <div class="portrait-header-bar">
+                <span>// BIO-METRIC HUD: ID_20081005</span>
+                <span class="mono" style="color: var(--accent-mint); font-weight: 600;">ACTIVE // VERIFIED</span>
+              </div>
+
+              <div class="portrait-stage">
+                <div class="portrait-stage-grid"></div>
+
+                <!-- Picture element with high-res and WebP format -->
+                <picture>
+                  <source srcset="assets/images/sumanth-cutout.webp" type="image/webp" />
+                  <img
+                    id="portrait-display-img"
+                    src="assets/images/sumanth-cutout.png"
+                    alt="Racha Sumanth - Founder of Swadeshi AI Private Limited"
+                    class="portrait-img"
+                  />
+                </picture>
+
+                <!-- Holographic HUD reticles -->
+                <div class="portrait-hud-overlay">
+                  <div class="hud-reticle-top">
+                    <span>SYS_ID: SUMANTH-RACHA</span>
+                    <span>TGT: AI_SYSTEMS</span>
+                  </div>
+                  <div class="hud-reticle-bottom">
+                    <div>
+                      <div style="font-size: 0.62rem; color: var(--text-muted); text-transform: uppercase;">Role</div>
+                      <div style="font-weight: 700; color: var(--text-primary);">Founder &amp; AI Architect</div>
+                    </div>
+                    <div style="text-align: right;">
+                      <div style="font-size: 0.62rem; color: var(--text-muted); text-transform: uppercase;">Laboratory</div>
+                      <div style="font-weight: 700; color: var(--accent);">Swadeshi AI Pvt Ltd</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="portrait-footer-actions">
+                <span class="mono" style="font-size: 0.68rem; color: var(--text-muted);">
+                  TELANGANA · 17.3850°N 78.4867°E
+                </span>
+                <button
+                  type="button"
+                  id="toggle-portrait-view"
+                  class="photo-toggle-btn"
+                  title="Switch between Cutout and Full Frame"
+                >
+                  Switch View: Full Studio ⟷ Cutout
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
-        <div class="flex items-center gap-4">
-          <a href="https://github.com/rachasathish55-eng" target="_blank" class="hover:text-white transition-colors">GitHub</a>
-          <span>•</span>
-          <a href="#hero-feature" class="hover:text-white transition-colors">Top ↑</a>
+      </section>
+
+      <!-- ====================================================================
+           2. COMPANY SPOTLIGHT SECTION (HIGHLIGHTING SWADESHI AI PRIVATE LIMITED)
+           ==================================================================== -->
+      <section id="company" class="company-spotlight-section" aria-labelledby="company-title">
+        <div class="container">
+          <div class="kicker">CORPORATE IDENTITY &amp; CORE VENTURE</div>
+
+          <div class="company-card">
+            <div class="company-header-grid">
+              <div class="company-emblem">
+                <img src="assets/images/swadeshi-logo.jpg" alt="Swadeshi AI Official Emblem" />
+              </div>
+              <div class="company-name-group">
+                <h2 id="company-title">Swadeshi AI Private Limited</h2>
+                <div class="company-tagline">
+                  // Research Laboratory for Intelligent Systems &amp; Deep-Tech Sovereignty
+                </div>
+              </div>
+              <div class="cin-badge-box">
+                <span class="cin-label">Corporate Identification (CIN)</span>
+                <span class="cin-code">
+                  <span id="cin-text">U62099TS2026PTC212584</span>
+                  <button
+                    type="button"
+                    class="copy-btn"
+                    onclick="copyToClipboard('U62099TS2026PTC212584', 'Corporate CIN copied!')"
+                    title="Copy CIN to clipboard"
+                    aria-label="Copy Corporate Identification Number"
+                  >
+                    📋
+                  </button>
+                </span>
+                <span style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--accent-mint); font-weight: 600;">
+                  ✓ INCORPORATED: 09 MARCH 2026
+                </span>
+              </div>
+            </div>
+
+            <p class="company-story-p">
+              Incorporated under the Ministry of Corporate Affairs, Government of India,
+              <strong>Swadeshi AI Private Limited</strong> represents the realization of my lifelong vision:
+              establishing a sovereign, research-driven deep-tech institution on Indian soil.
+              After exploring names like <em>Cron</em> and <em>Strawberry Studios</em>, securing the name
+              <strong>"Swadeshi AI Private Limited"</strong> established our fundamental mandate — engineering state-of-the-art
+              autonomous intelligence, custom neural architectures, and defense-grade systems from first principles.
+            </p>
+
+            <!-- 3 Core Research Pillars -->
+            <div class="company-pillars-grid">
+              <div class="pillar-card">
+                <div class="pillar-num">// PILLAR 01</div>
+                <div class="pillar-title">Autonomous Agentic AI</div>
+                <div class="pillar-desc">
+                  Building next-generation agent architectures with Model Context Protocol (MCP), dynamic tool execution,
+                  and neuro-symbolic multi-step planning loops.
+                </div>
+              </div>
+              <div class="pillar-card">
+                <div class="pillar-num">// PILLAR 02</div>
+                <div class="pillar-title">Deep Silicon &amp; Analog Computing</div>
+                <div class="pillar-desc">
+                  Investigating continuous-voltage analog math architectures, hybrid binary-analog acceleration, and
+                  low-power neural emulation for edge cognition.
+                </div>
+              </div>
+              <div class="pillar-card">
+                <div class="pillar-num">// PILLAR 03</div>
+                <div class="pillar-title">Cybersecurity Systems Hardening</div>
+                <div class="pillar-desc">
+                  Hardware-firmware auditing, telemetry attack surface reduction, and offensive vulnerability discovery
+                  across distributed enterprise endpoints.
+                </div>
+              </div>
+            </div>
+
+            <div class="company-action-footer">
+              <div class="company-links-group">
+                <a
+                  href="https://www.swadeshi.dev"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-primary btn-mono"
+                  style="gap: 0.5rem;"
+                >
+                  <span>Visit swadeshi.dev Portal</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+                <span class="meta-indicator">
+                  <span class="pulse-dot"></span>
+                  <span>HEADQUARTERS: HYDERABAD, TELANGANA</span>
+                </span>
+              </div>
+              <div class="meta-indicator">
+                <span>FOUNDING INQUIRIES:</span>
+                <a href="mailto:internship@swadeshi.dev" class="mono" style="color: var(--accent); font-weight: 600;">internship@swadeshi.dev</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           3. DEEP-TECH AI RESEARCH & ARCHITECTURES
+           ==================================================================== -->
+      <section id="research" class="section-block" aria-labelledby="research-title">
+        <div class="container">
+          <div class="section-header">
+            <span class="kicker">NEURAL ARCHITECTURES &amp; MODELS</span>
+            <h2 id="research-title">Deep-Tech AI Research Laboratory</h2>
+            <p class="section-intro">
+              Experimental transformer modifications, recursive memory matrices, and embodied spiking neural models
+              trained across Google Colab, Kaggle, and dedicated lab hardware.
+            </p>
+          </div>
+
+          <div class="research-grid">
+            <!-- Project 1: Recursive Memory Titan (RMT) — "Math Sir" V5 -->
+            <article class="research-card">
+              <div
+                class="research-media-wrapper"
+                onclick="openLightbox('assets/images/recursive-titan.png', 'Recursive Memory Titan (RMT) — Math Sir V5 Architecture diagram')"
+              >
+                <picture>
+                  <source srcset="assets/images/recursive-titan.webp" type="image/webp" />
+                  <img
+                    src="assets/images/recursive-titan.png"
+                    alt="Recursive Memory Titan V5 Neural Architecture"
+                    class="research-media-img"
+                  />
+                </picture>
+                <span class="research-badge-overlay mono">RESEARCH // TITAN_RMT_V5</span>
+                <span class="research-zoom-hint mono">🔍 Click to enlarge diagram</span>
+              </div>
+
+              <div class="research-body">
+                <div class="research-kicker-row">
+                  <span class="kicker" style="margin-bottom: 0;">RECURSIVE MEMORY TRANSFORMER</span>
+                  <span class="meta-tag mono">~93.4 MB FOOTPRINT</span>
+                </div>
+
+                <h3 class="research-title">Recursive Memory Titan (RMT) — "Math Sir" V5</h3>
+                <p class="research-text">
+                  A neuro-symbolic offline mathematical reasoning model combining recursive iterative attention
+                  with dedicated Context RAM and an Axiomatic ROM. Engineered for multi-step algorithmic derivation
+                  (up to 1,024 reasoning tokens) on mobile and edge devices without cloud connectivity.
+                </p>
+
+                <!-- Spec Grid -->
+                <div class="spec-grid">
+                  <div class="spec-item">
+                    <span>Architecture</span>
+                    <span>2-Layer Recursive Core</span>
+                  </div>
+                  <div class="spec-item">
+                    <span>Memory Mechanism</span>
+                    <span>Context RAM &amp; Axiomatic ROM</span>
+                  </div>
+                  <div class="spec-item">
+                    <span>Training Modality</span>
+                    <span>RL + Math-Language (1:1)</span>
+                  </div>
+                  <div class="spec-item">
+                    <span>Inference Target</span>
+                    <span>Lightweight Offline Edge</span>
+                  </div>
+                </div>
+
+                <div class="research-links-list">
+                  <a
+                    href="https://drive.google.com/drive/folders/1tYk6fD0SoU9E31t-lhfgRASQCTf2ZL4V"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="drive-link-item"
+                  >
+                    <span>📁 Titan Model Artifacts &amp; Core Scripts</span>
+                    <span>Open Drive ↗</span>
+                  </a>
+                  <a
+                    href="https://drive.google.com/drive/folders/1KcuQt-9vWNyL9ODpXlI0MOiUj9Pb6bjq?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="drive-link-item"
+                  >
+                    <span>⚖️ Model Weights, Evaluation &amp; Benchmarks</span>
+                    <span>Open Drive ↗</span>
+                  </a>
+                  <a
+                    href="https://drive.google.com/drive/folders/1ek7B3NYBQAyzN9iEUolWkPujby_l-cx7?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="drive-link-item"
+                  >
+                    <span>📓 Kaggle &amp; Colab RL Training Notebooks</span>
+                    <span>Open Drive ↗</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 2: Artificial Brain Project -->
+            <article class="research-card">
+              <div
+                class="research-media-wrapper"
+                onclick="openLightbox('assets/images/artificial-brain.png', 'Artificial Brain Project: Embodied Neural Intelligence')"
+              >
+                <picture>
+                  <source srcset="assets/images/artificial-brain.webp" type="image/webp" />
+                  <img
+                    src="assets/images/artificial-brain.png"
+                    alt="Artificial Brain Project Neural Circuitry Architecture"
+                    class="research-media-img"
+                  />
+                </picture>
+                <span class="research-badge-overlay mono">RESEARCH // EMBODIED_SNN</span>
+                <span class="research-zoom-hint mono">🔍 Click to enlarge diagram</span>
+              </div>
+
+              <div class="research-body">
+                <div class="research-kicker-row">
+                  <span class="kicker" style="margin-bottom: 0;">SPIKING NEURAL NETWORKS (SNN)</span>
+                  <span class="meta-tag mono">11K+ NEURONS</span>
+                </div>
+
+                <h3 class="research-title">Artificial Brain Project: Embodied Neural Intelligence</h3>
+                <p class="research-text">
+                  A biomimetic neuro-computational architecture simulating biological brain regions (Neocortex,
+                  Prefrontal Cortex, Hippocampus, Striatum, Thalamus). Integrates Izhikevich/AdEx spiking equations,
+                  STDP, Dopamine Reward-STDP, and Glial Astrocyte scaling into continuous RL environments.
+                </p>
+
+                <!-- Spec Grid -->
+                <div class="spec-grid">
+                  <div class="spec-item">
+                    <span>Simulated Neurons</span>
+                    <span>11,000+ Biological Spiking</span>
+                  </div>
+                  <div class="spec-item">
+                    <span>Synaptic Connections</span>
+                    <span>~1.5M Dynamic Plasticity</span>
+                  </div>
+                  <div class="spec-item">
+                    <span>Brain Regions</span>
+                    <span>8 Functional Topologies</span>
+                  </div>
+                  <div class="spec-item">
+                    <span>Embodied Simulation</span>
+                    <span>OpenAI Gym &amp; Quadruped v2.0</span>
+                  </div>
+                </div>
+
+                <div class="research-links-list">
+                  <a
+                    href="https://drive.google.com/drive/folders/1os5KK9Docp9sBrPweGTkRmlkQ_8btMIN"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="drive-link-item"
+                  >
+                    <span>🧠 Artificial Brain Full Architecture, Weights &amp; Code</span>
+                    <span>Open Drive ↗</span>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           4. PATENTS, PRODUCTION SOFTWARE & APPLIED SYSTEMS
+           ==================================================================== -->
+      <section id="patents" class="section-block" style="background: var(--bg-subtle);" aria-labelledby="patents-title">
+        <div class="container">
+          <div class="section-header">
+            <span class="kicker">INTELLECTUAL PROPERTY &amp; APPLIED ENGINEERING</span>
+            <h2 id="patents-title">Patents, Software &amp; Applied Systems</h2>
+            <p class="section-intro">
+              From Indian patent filings and published Google Play Store applications to autonomous algorithmic trading engines.
+            </p>
+          </div>
+
+          <div class="applied-cards-grid">
+            <!-- Indian Patent -->
+            <div class="applied-card featured">
+              <div class="applied-top-meta">
+                <span class="kicker" style="margin-bottom: 0;">INTELLECTUAL PROPERTY // GOVT OF INDIA</span>
+                <span class="meta-tag mono" style="color: var(--accent-mint); border-color: var(--accent-mint);">PATENT FILED</span>
+              </div>
+              <h3 class="applied-title">Indian Patent Filing: Novel Invisible Techniques</h3>
+              <p class="applied-desc">
+                Researched and authored comprehensive patent documentation covering innovative invisible transmission
+                and signal processing methods. Formally submitted to the Indian Patent Office in January 2025.
+              </p>
+
+              <div class="spec-grid" style="margin-bottom: 1.25rem;">
+                <div class="spec-item">
+                  <span>Application Number</span>
+                  <span style="display: flex; align-items: center; gap: 0.35rem;">
+                    <code class="mono" style="font-weight: 700;">202541016797</code>
+                    <button
+                      type="button"
+                      class="copy-btn"
+                      onclick="copyToClipboard('202541016797', 'Patent Number copied!')"
+                      title="Copy Patent Application Number"
+                    >
+                      📋
+                    </button>
+                  </span>
+                </div>
+                <div class="spec-item">
+                  <span>Filing Date</span>
+                  <span>January 2025</span>
+                </div>
+              </div>
+
+              <div class="applied-footer">
+                <span class="mono" style="font-size: 0.75rem; color: var(--text-muted);">Application: 202541016797</span>
+                <a
+                  href="https://drive.google.com/drive/folders/11ISkepfzWPS0NyrWgn-Xacfn97qAOofv?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-sm btn-primary btn-mono"
+                >
+                  <span>View Patent Folder</span>
+                  <span>↗</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Google Play Store: Find My File -->
+            <div class="applied-card">
+              <div class="applied-top-meta">
+                <span class="kicker" style="margin-bottom: 0;">PRODUCTION ANDROID SOFTWARE</span>
+                <span class="meta-tag mono">GOOGLE PLAY STORE</span>
+              </div>
+              <h3 class="applied-title">Find My File — Android Utility Application</h3>
+              <p class="applied-desc">
+                Conceived, engineered via vibe coding, and deployed live to Google Play Store.
+                A performance-focused mobile storage navigation utility facilitating indexed instant search and deep storage management.
+              </p>
+
+              <div class="spec-grid" style="margin-bottom: 1.25rem;">
+                <div class="spec-item">
+                  <span>Package ID</span>
+                  <span class="mono" style="font-size: 0.72rem;">tech.strawberrystudios.findmyfile</span>
+                </div>
+                <div class="spec-item">
+                  <span>Release Period</span>
+                  <span>Nov – Dec 2025</span>
+                </div>
+              </div>
+
+              <div class="applied-footer">
+                <span class="mono" style="font-size: 0.75rem; color: var(--text-muted);">Published Application</span>
+                <a
+                  href="https://play.google.com/store/apps/details?id=tech.strawberrystudios.findmyfile&pcampaignid=web_share"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn-sm btn-secondary btn-mono"
+                >
+                  <span>Google Play Store ↗</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Agentic Trading Bot -->
+            <div class="applied-card">
+              <div class="applied-top-meta">
+                <span class="kicker" style="margin-bottom: 0;">ALGORITHMIC FINANCE &amp; CLOUD</span>
+                <span class="meta-tag mono">AWS INFRASTRUCTURE</span>
+              </div>
+              <h3 class="applied-title">Autonomous Agentic Trading Bot &amp; API Servers</h3>
+              <p class="applied-desc">
+                Architected low-latency API servers and agentic execution bots for automated quantitative trading strategies.
+                Gained deep operational mastery over AWS deployment, server telemetry, risk limits, and real-time order-book pipelines.
+              </p>
+              <div class="applied-footer">
+                <span class="mono" style="font-size: 0.75rem; color: var(--text-muted);">Apr – May 2026 // AWS</span>
+                <span class="meta-tag mono">CLOUD ARCHITECTURE</span>
+              </div>
+            </div>
+
+            <!-- Analog Computing & 3D Engine -->
+            <div class="applied-card">
+              <div class="applied-top-meta">
+                <span class="kicker" style="margin-bottom: 0;">HARDWARE R&amp;D &amp; SIMULATION</span>
+                <span class="meta-tag mono">ANALOG COMPUTING</span>
+              </div>
+              <h3 class="applied-title">Analog Computing &amp; 3D Virtual Pet Engine</h3>
+              <p class="applied-desc">
+                Pioneered experimental research bridging continuous analog signals with discrete computing.
+                Engineered an interactive 3D virtual simulation engine, sharpening capabilities across 3D polygon modeling,
+                binary computing logic, and game engine mechanics.
+              </p>
+              <div class="applied-footer">
+                <span class="mono" style="font-size: 0.75rem; color: var(--text-muted);">May – Aug 2026</span>
+                <span class="meta-tag mono">ANALOG SYSTEMS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           5. INTERACTIVE CHRONOLOGICAL LABORATORY TIMELINE
+           ==================================================================== -->
+      <section id="timeline" class="section-block" aria-labelledby="timeline-title">
+        <div class="container">
+          <div class="section-header">
+            <span class="kicker">CHRONOLOGY // 2024 &rarr; 2026</span>
+            <h2 id="timeline-title">The Scientific &amp; Entrepreneurial Journey</h2>
+            <p class="section-intro">
+              A comprehensive chronicle of technical breakthroughs, rigorous institutional apprenticeships, and company milestones.
+            </p>
+          </div>
+
+          <!-- Timeline Filter Controls -->
+          <div class="timeline-filter-bar">
+            <button type="button" class="timeline-filter-btn active" onclick="filterTimeline('all', this)">All Milestones</button>
+            <button type="button" class="timeline-filter-btn" onclick="filterTimeline('research', this)">Research &amp; Patents</button>
+            <button type="button" class="timeline-filter-btn" onclick="filterTimeline('company', this)">Company &amp; Ventures</button>
+            <button type="button" class="timeline-filter-btn" onclick="filterTimeline('apprenticeship', this)">Apprenticeships &amp; Academia</button>
+            <button type="button" class="timeline-filter-btn" onclick="filterTimeline('security', this)">Cybersecurity</button>
+          </div>
+
+          <div class="timeline-wrapper">
+            <!-- 2026 August to Present: Bug Bounty -->
+            <div class="timeline-entry" data-category="security">
+              <div class="timeline-card">
+                <div class="timeline-meta-line">
+                  <span class="timeline-date">AUG 2026 &mdash; PRESENT</span>
+                  <span class="meta-tag mono">SECURITY RESEARCH</span>
+                </div>
+                <h4 class="timeline-heading">Offensive Security &amp; Vulnerability Research (HackerOne &amp; Bugcrowd)</h4>
+                <p class="timeline-details">
+                  Actively probing attack surfaces and web security primitives on global bounty platforms.
+                  Achieved numerous Informative and Duplicate triage disclosures across production enterprise targets,
+                  deepening practical knowledge of authentication bypasses, telemetry leakage, and API endpoint flaws.
+                </p>
+              </div>
+            </div>
+
+            <!-- 2026 May to August: Analog Computing & 3D -->
+            <div class="timeline-entry" data-category="research">
+              <div class="timeline-card">
+                <div class="timeline-meta-line">
+                  <span class="timeline-date">MAY 2026 &mdash; AUG 2026</span>
+                  <span class="meta-tag mono">ANALOG COMPUTING</span>
+                </div>
+                <h4 class="timeline-heading">Analog Computing Exploration &amp; 3D Engine Development</h4>
+                <p class="timeline-details">
+                  Conducted research into continuous-voltage analog mathematical computing as an energy-efficient alternative
+                  to conventional digital matrix operations. Developed an experimental 3D interactive virtual pet simulation engine,
+                  gaining skills in 3D modeling, low-level binary logic, and custom engine mechanics.
+                </p>
+              </div>
+            </div>
+
+            <!-- 2026 April to May: Trading Bot -->
+            <div class="timeline-entry" data-category="company">
+              <div class="timeline-card">
+                <div class="timeline-meta-line">
+                  <span class="timeline-date">APR 2026 &mdash; MAY 2026</span>
+                  <span class="meta-tag mono">AGENTIC SYSTEMS</span>
+                </div>
+                <h4 class="timeline-heading">Agentic Trading Bots &amp; Cloud API Infrastructure</h4>
+                <p class="timeline-details">
+                  Engineered automated algorithmic market bots and high-throughput backend API servers deployed on AWS.
+                  Mastered quantitative risk algorithms, exchange APIs, serverless infrastructure, and cloud telemetry management.
+                </p>
+              </div>
+            </div>
+
+            <!-- 2026 March: Swadeshi AI Incorporated -->
+            <div class="timeline-entry featured" data-category="company">
+              <div class="timeline-card" style="border: 1.5px solid var(--accent); background: var(--surface-elevated);">
+                <div class="timeline-meta-line">
+                  <span class="timeline-date" style="color: var(--accent-mint);">09 MARCH 2026</span>
+                  <span class="meta-tag mono" style="color: var(--accent); border-color: var(--accent);">MILESTONE // INCORPORATION</span>
+                </div>
+                <h4 class="timeline-heading">Incorporation of Swadeshi AI Private Limited</h4>
+                <p class="timeline-details">
+                  Formally incorporated <strong>Swadeshi AI Private Limited</strong> (CIN: <code class="mono">U62099TS2026PTC212584</code>).
+                  A momentous milestone choosing the sovereign Indian moniker "Swadeshi AI" to build a dedicated deep-tech laboratory
+                  focusing on autonomous agentic systems, cybersecurity, and analog semiconductors.
+                </p>
+                <div class="timeline-links">
+                  <a href="https://www.swadeshi.dev" target="_blank" class="meta-tag mono" style="color: var(--accent);">Visit swadeshi.dev ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2025 Nov to Present: AI R&D (Titan, Recursive, RL) -->
+            <div class="timeline-entry featured" data-category="research">
+              <div class="timeline-card">
+                <div class="timeline-meta-line">
+                  <span class="timeline-date">NOV 2025 &mdash; PRESENT</span>
+                  <span class="meta-tag mono">KAGGLE &amp; COLAB R&amp;D</span>
+                </div>
+                <h4 class="timeline-heading">Deep AI Research: TITAN Architecture, Recursive Reasoning &amp; RL</h4>
+                <p class="timeline-details">
+                  Intensive empirical machine learning experiments in Kaggle and Google Colab.
+                  Designed recursive memory loops, transformer token compression, and neuro-symbolic multi-step reasoning
+                  architectures culminating in the Recursive Memory Titan (RMT) V5 model.
+                </p>
+                <div class="timeline-links">
+                  <a href="https://drive.google.com/drive/folders/1tYk6fD0SoU9E31t-lhfgRASQCTf2ZL4V" target="_blank" class="meta-tag mono">Titan Code (Drive) ↗</a>
+                  <a href="https://drive.google.com/drive/folders/1KcuQt-9vWNyL9ODpXlI0MOiUj9Pb6bjq?usp=sharing" target="_blank" class="meta-tag mono">Weights &amp; Benchmarks ↗</a>
+                  <a href="https://drive.google.com/drive/folders/1ek7B3NYBQAyzN9iEUolWkPujby_l-cx7?usp=sharing" target="_blank" class="meta-tag mono">Colab Notebooks ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2025 Nov to Dec: Vibe Coding & Play Store -->
+            <div class="timeline-entry" data-category="company">
+              <div class="timeline-card">
+                <div class="timeline-meta-line">
+                  <span class="timeline-date">NOV 2025 &mdash; DEC 2025</span>
+                  <span class="meta-tag mono">VIBE CODING</span>
+                </div>
+                <h4 class="timeline-heading">Vibe Coding &amp; "Find My File" App Launch on Google Play Store</h4>
+                <p class="timeline-details">
+                  Harnessed cutting-edge agentic workflows and vibe-coding paradigms to build and publish the Android app
+                  <strong>Find My File</strong> live on the Google Play Store under Strawberry Studios.
+                </p>
+                <div class="timeline-links">
+                  <a href="https://play.google.com/store/apps/details?id=tech.strawberrystudios.findmyfile&pcampaignid=web_share" target="_blank" class="meta-tag mono">Play Store App ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2025 November: Bought Laptop -->
+            <div class="timeline-entry" data-category="apprenticeship">
+              <div class="timeline-card">
+                <div class="timeline-meta-line">
+                  <span class="timeline-date">NOV 2025</span>
+                  <span class="meta-tag mono">EQUIPMENT</span>
+                </div>
+                <h4 class="timeline-heading">First Dedicated Development Laptop Acquired</h4>
+                <p class="timeline-details">
+                  Acquired first dedicated personal workstation laptop, unlocking continuous local development,
+                  hardware flashing pipelines, and high-frequency model experimentation.
+                </p>
+              </div>
+            </div>
+
+            <!-- 2025 Jun to Jul: Osmania University Biomedical Engineering -->
+            <div class="timeline-entry" data-category="apprenticeship">
+              <div class="timeline-card">
+                <div class="timeline-meta-line">
+                  <span class="timeline-date">JUN 2025 &mdash; JUL 2025</span>
+                  <span class="meta-tag mono">OSMANIA UNIVERSITY</span>
+                </div>
+                <h4 class="timeline-heading">Biomedical Engineering Internship (Osmania University)</h4>
+                <p class="timeline-details">
+                  Joined lectures, surgical labs, and research departments alongside Biomedical Engineering peers.
+                  Studied surgical AI machine design, robotic clinical operations, diagnostic imaging telemetry,
+                  and remote surgical system theories.
+                </p>
+              </div>
+            </div>
+
+            <!-- 2025 May to Jul: Artificial Brain Project -->
+            <div class="timeline-entry featured" data-category="research">
+              <div class="timeline-card">
+                <div class="timeline-meta-line">
+                  <span class="timeline-date">MAY 2025 &mdash; JUL 2025</span>
+                  <span class="meta-tag mono">NEURAL SIMULATION</span>
+                </div>
+                <h4 class="timeline-heading">Artificial Brain Project: Embodied Neural Intelligence</h4>
+                <p class="timeline-details">
+                  Engineered biologically grounded Spiking Neural Network simulation comprising 11,000+ neurons
+                  and 1.5M synapses across 8 brain regions, verified in simulated physics environments.
+                </p>
+                <div class="timeline-links">
+                  <a href="https://drive.google.com/drive/folders/1os5KK9Docp9sBrPweGTkRmlkQ_8btMIN" target="_blank" class="meta-tag mono">Brain Project Drive ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2025 Jan: Indian Patent Filed -->
+            <div class="timeline-entry featured" data-category="research">
+              <div class="timeline-card">
+                <div class="timeline-meta-line">
+                  <span class="timeline-date">JAN 2025</span>
+                  <span class="meta-tag mono">PATENT APPLICATION</span>
+                </div>
+                <h4 class="timeline-heading">Indian Patent Filed: Invisible Techniques (Application #202541016797)</h4>
+                <p class="timeline-details">
+                  Formulated novel signal transmission and invisible hardware telemetry principles, culminating
+                  in the formal submission of Indian Patent Application No. <strong>202541016797</strong>.
+                </p>
+                <div class="timeline-links">
+                  <a href="https://drive.google.com/drive/folders/11ISkepfzWPS0NyrWgn-Xacfn97qAOofv?usp=sharing" target="_blank" class="meta-tag mono">Patent Docs (Drive) ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2024 Oct to 2025 Jul: DRDO Internship -->
+            <div class="timeline-entry" data-category="apprenticeship">
+              <div class="timeline-card">
+                <div class="timeline-meta-line">
+                  <span class="timeline-date">OCT 2024 &mdash; JUL 2025</span>
+                  <span class="meta-tag mono">DRDO APPRENTICESHIP</span>
+                </div>
+                <h4 class="timeline-heading">Defense Research &amp; Development Organisation (DRDO) Apprenticeship</h4>
+                <p class="timeline-details">
+                  Secured defense research internship through college. Stationed alongside defense scientists
+                  observing high-precision rocket and missile propulsion machinery, defense electronic telemetry,
+                  and aerospace mechanical assemblies.
+                </p>
+              </div>
+            </div>
+
+            <!-- 2024 Jul: Government Institute of Electronics -->
+            <div class="timeline-entry" data-category="apprenticeship">
+              <div class="timeline-card">
+                <div class="timeline-meta-line">
+                  <span class="timeline-date">JUL 2024</span>
+                  <span class="meta-tag mono">COLLEGE ADMISSION</span>
+                </div>
+                <h4 class="timeline-heading">Govt. Institute of Electronics Secunderabad (Rank 4045)</h4>
+                <p class="timeline-details">
+                  Enrolled in the prestigious Multimedia and Electronic Engineering branch following an impressive
+                  TS POLYCET State Rank of <strong>4045</strong>.
+                </p>
+              </div>
+            </div>
+
+            <!-- 2024 Mar: Started Coding with ChatGPT -->
+            <div class="timeline-entry" data-category="company">
+              <div class="timeline-card">
+                <div class="timeline-meta-line">
+                  <span class="timeline-date">MAR 2024</span>
+                  <span class="meta-tag mono">FIRST CODE</span>
+                </div>
+                <h4 class="timeline-heading">Entrepreneurial Inception: Early AI &amp; Prompt Engineering</h4>
+                <p class="timeline-details">
+                  Commenced software development journey before modern autonomous coding agents existed,
+                  iterating code with early ChatGPT models, constructing utility apps, and studying fundamental software architectures.
+                </p>
+              </div>
+            </div>
+
+            <!-- 2024 Jan to 2025 Mar: YouTube Channel -->
+            <div class="timeline-entry" data-category="company">
+              <div class="timeline-card">
+                <div class="timeline-meta-line">
+                  <span class="timeline-date">JAN 2024 &mdash; MAR 2025</span>
+                  <span class="meta-tag mono">DIGITAL MEDIA</span>
+                </div>
+                <h4 class="timeline-heading">Creative Media Production (@santusta YouTube Channel)</h4>
+                <p class="timeline-details">
+                  Built and operated YouTube channel (@santusta). Mastered 2D graphics, digital marketing,
+                  algorithmic audience retention, scriptwriting, and AI-driven content generation pipelines.
+                </p>
+                <div class="timeline-links">
+                  <a href="https://youtube.com/@santusta?si=vsMGXUAiPXdSbwID" target="_blank" class="meta-tag mono">YouTube Channel @santusta ↗</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 2024: 10th Class Topper 9.8 GPA -->
+            <div class="timeline-entry" data-category="apprenticeship">
+              <div class="timeline-card">
+                <div class="timeline-meta-line">
+                  <span class="timeline-date">MAY 2024</span>
+                  <span class="meta-tag mono">ACADEMIC FOUNDATION</span>
+                </div>
+                <h4 class="timeline-heading">10th Class Graduation with 9.8 GPA (Jawahar Nagar Pinion High School)</h4>
+                <p class="timeline-details">
+                  Completed secondary education with an exceptional <strong>9.8 GPA</strong> at Jawahar Nagar Pinion High School,
+                  establishing a rigorous foundation in mathematics, physics, and science.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           6. SKILLS & DOMAIN TELEMETRY MATRIX
+           ==================================================================== -->
+      <section id="skills" class="section-block" style="background: var(--bg-subtle);" aria-labelledby="skills-title">
+        <div class="container">
+          <div class="section-header">
+            <span class="kicker">SYSTEM CAPABILITIES</span>
+            <h2 id="skills-title">Core Competencies &amp; Technical Matrix</h2>
+            <p class="section-intro">
+              Cross-disciplinary proficiency spanning theoretical machine learning, physical defense hardware, and systems engineering.
+            </p>
+          </div>
+
+          <div class="skills-matrix-grid">
+            <div class="matrix-card">
+              <div class="matrix-header">
+                <span class="pulse-dot" style="background: var(--accent);"></span>
+                <span class="matrix-title">AI &amp; Neural Systems</span>
+              </div>
+              <div class="chips-wrap">
+                <span class="chip">RL Training</span>
+                <span class="chip">Transformer Architecture</span>
+                <span class="chip">Recursive Memory (RMT)</span>
+                <span class="chip">Token Compression</span>
+                <span class="chip">Neuro-Symbolic Models</span>
+                <span class="chip">Spiking Neural Networks</span>
+                <span class="chip">PyTorch &amp; Python</span>
+                <span class="chip">Kaggle &amp; Google Colab</span>
+              </div>
+            </div>
+
+            <div class="matrix-card">
+              <div class="matrix-header">
+                <span class="pulse-dot" style="background: var(--accent-mint);"></span>
+                <span class="matrix-title">Hardware &amp; Aerospace</span>
+              </div>
+              <div class="chips-wrap">
+                <span class="chip">Analog Computing</span>
+                <span class="chip">Binary Computing Logic</span>
+                <span class="chip">Rocket/Missile Telemetry (DRDO)</span>
+                <span class="chip">Electronics &amp; Multimedia (GIOE)</span>
+                <span class="chip">Biomedical Engineering (OU)</span>
+                <span class="chip">3D Modeling</span>
+                <span class="chip">Device Flashing</span>
+              </div>
+            </div>
+
+            <div class="matrix-card">
+              <div class="matrix-header">
+                <span class="pulse-dot" style="background: var(--accent-cyan);"></span>
+                <span class="matrix-title">Software, Cloud &amp; Security</span>
+              </div>
+              <div class="chips-wrap">
+                <span class="chip">Vibe Coding</span>
+                <span class="chip">Android Dev (Play Store)</span>
+                <span class="chip">Agentic Trading Bots</span>
+                <span class="chip">API Servers (FastAPI/Node)</span>
+                <span class="chip">AWS Infrastructure</span>
+                <span class="chip">Bug Bounty (H1/Bugcrowd)</span>
+                <span class="chip">Patent Authoring</span>
+                <span class="chip">2D Graphics &amp; Media</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           7. DIRECT CONTACT & TELEMETRY TERMINAL (NO GITHUB LOGO)
+           ==================================================================== -->
+      <section id="contact" class="section-block" aria-labelledby="contact-title">
+        <div class="container">
+          <div class="section-header">
+            <span class="kicker">COMMUNICATIONS PROTOCOL</span>
+            <h2 id="contact-title">Direct Channel Dispatch</h2>
+            <p class="section-intro">
+              Initiate direct dialogue for deep-tech research partnerships, corporate inquiries, or technical discourse.
+            </p>
+          </div>
+
+          <div class="contact-terminal-shell">
+            <div class="terminal-top-bar">
+              <div class="terminal-lights">
+                <span class="terminal-light red"></span>
+                <span class="terminal-light yellow"></span>
+                <span class="terminal-light green"></span>
+              </div>
+              <span class="mono">TERMINAL // RACHA SUMANTH // HYD-LAB</span>
+              <span class="mono" style="color: var(--accent-mint);">READY</span>
+            </div>
+
+            <div class="terminal-body">
+              <div class="contact-channels-list">
+                <!-- Telephone -->
+                <a href="tel:8331827178" class="contact-channel-item">
+                  <div class="channel-meta">
+                    <span class="channel-name">Direct Telephone / Cellular</span>
+                    <span class="channel-val">+91 83318 27178</span>
+                  </div>
+                  <span class="channel-action">Call / Dial ↗</span>
+                </a>
+
+                <!-- Company Portal -->
+                <a href="https://www.swadeshi.dev" target="_blank" rel="noopener noreferrer" class="contact-channel-item">
+                  <div class="channel-meta">
+                    <span class="channel-name">Company Portal</span>
+                    <span class="channel-val">https://www.swadeshi.dev</span>
+                  </div>
+                  <span class="channel-action">Visit Portal ↗</span>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/racha-sumanth-a4b283441/" target="_blank" rel="noopener noreferrer" class="contact-channel-item">
+                  <div class="channel-meta">
+                    <span class="channel-name">Professional Network</span>
+                    <span class="channel-val">linkedin.com/in/racha-sumanth-a4b283441</span>
+                  </div>
+                  <span class="channel-action">Connect ↗</span>
+                </a>
+
+                <!-- X / Twitter -->
+                <a href="https://x.com/Sumanth_bro" target="_blank" rel="noopener noreferrer" class="contact-channel-item">
+                  <div class="channel-meta">
+                    <span class="channel-name">X (Formerly Twitter)</span>
+                    <span class="channel-val">@Sumanth_bro</span>
+                  </div>
+                  <span class="channel-action">Follow ↗</span>
+                </a>
+
+                <!-- YouTube -->
+                <a href="https://youtube.com/@santusta?si=vsMGXUAiPXdSbwID" target="_blank" rel="noopener noreferrer" class="contact-channel-item">
+                  <div class="channel-meta">
+                    <span class="channel-name">YouTube Creative Channel</span>
+                    <span class="channel-val">@santusta</span>
+                  </div>
+                  <span class="channel-action">Subscribe ↗</span>
+                </a>
+              </div>
+
+              <!-- Verification Details -->
+              <div class="terminal-side-info">
+                <div>
+                  <div class="kicker" style="font-size: 0.7rem;">RESEARCH IDENTITY</div>
+                  <div class="identity-strip">
+                    <p>NAME: <span>Racha Sumanth</span></p>
+                    <p>BORN: <span>05 October 2008 (Age 18)</span></p>
+                    <p>ROLE: <span>Founder &amp; Research Director</span></p>
+                    <p>FIRM: <span>Swadeshi AI Private Limited</span></p>
+                    <p>CIN: <span>U62099TS2026PTC212584</span></p>
+                    <p>PATENT: <span>202541016797</span></p>
+                    <p>LOCATION: <span>Hyderabad, Telangana, India</span></p>
+                  </div>
+                </div>
+
+                <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--line);">
+                  <button
+                    type="button"
+                    class="btn btn-sm btn-primary btn-mono"
+                    style="width: 100%;"
+                    onclick="copyToClipboard('8331827178', 'Phone Number copied to clipboard!')"
+                  >
+                    Copy Phone Number (+91 83318 27178)
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- SITE FOOTER -->
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div>
+          <span>&copy; 2026 Racha Sumanth. All rights reserved.</span>
+          <span style="margin: 0 0.5rem;">//</span>
+          <span>Founder @ <a href="https://www.swadeshi.dev" target="_blank" style="color: var(--text-primary); font-weight: 600;">Swadeshi AI Private Limited</a> (CIN: U62099TS2026PTC212584)</span>
+        </div>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+          <a href="#hero">Back to Top ↑</a>
+          <a href="https://www.swadeshi.dev" target="_blank">swadeshi.dev ↗</a>
         </div>
       </div>
-    </section>
+    </footer>
 
-  </main>
+    <!-- INTERACTIVE LIGHTBOX MODAL FOR HIGH-RES RESEARCH DIAGRAMS -->
+    <div id="lightbox-modal" class="modal-lightbox" onclick="closeLightbox(event)">
+      <div class="lightbox-content" onclick="event.stopPropagation()">
+        <div class="lightbox-header">
+          <span id="lightbox-title">// RESEARCH ARCHITECTURE DIAGRAM</span>
+          <button type="button" class="close-lightbox" onclick="closeLightbox()">&times;</button>
+        </div>
+        <div class="lightbox-img-box">
+          <img id="lightbox-img" src="" alt="High resolution diagram" />
+        </div>
+        <div id="lightbox-caption" class="lightbox-caption mono"></div>
+      </div>
+    </div>
 
-  <!-- Interactive Adham Dannaway Split Script -->
-  <script>
-    // Initialize Lucide icons
-    lucide.createIcons();
+    <!-- TOAST NOTIFICATION -->
+    <div id="toast-notify" role="status" aria-live="polite">
+      <span>✓</span>
+      <span id="toast-text">Copied to clipboard!</span>
+    </div>
 
-    // Set current year
-    document.getElementById('current-year').textContent = new Date().getFullYear();
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+      // ======================================================================
+      // 1. THEME SWITCHER (LIGHT / DARK) WITH LOCALSTORAGE PERSISTENCE
+      // ======================================================================
+      const htmlEl = document.documentElement;
+      const themeBtn = document.getElementById("theme-toggle");
+      const moonIcon = document.getElementById("theme-icon-moon");
+      const sunIcon = document.getElementById("theme-icon-sun");
 
-    // Mobile menu toggle
-    const menuBtn = document.getElementById('menu-btn');
-    const mobileMenu = document.getElementById('mobile-menu');
-    if (menuBtn && mobileMenu) {
-      menuBtn.addEventListener('click', () => {
-        mobileMenu.classList.toggle('hidden');
-      });
-      mobileMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
-      });
-    }
-
-    // Copy Email to clipboard with toast notification
-    function copyEmail() {
-      const email = 'contact@rachasumanth.me';
-      navigator.clipboard.writeText(email).then(() => {
-        const toast = document.getElementById('toast');
-        toast.classList.remove('translate-y-20', 'opacity-0');
-        toast.classList.add('translate-y-0', 'opacity-100');
-        
-        setTimeout(() => {
-          toast.classList.remove('translate-y-0', 'opacity-100');
-          toast.classList.add('translate-y-20', 'opacity-0');
-        }, 3000);
-      }).catch(err => {
-        console.error('Failed to copy email: ', err);
-      });
-    }
-
-    // ========================================================
-    // Adham Dannaway Style Interactive Split Controller
-    // ========================================================
-    (function initSplitFeature() {
-      const splitBox = document.getElementById('split-box');
-      const clipOverlay = document.getElementById('img-real-clip');
-      const splitLine = document.getElementById('split-line');
-      const designerTrigger = document.getElementById('designer-trigger');
-      const coderTrigger = document.getElementById('coder-trigger');
-
-      if (!splitBox || !clipOverlay || !splitLine) return;
-
-      // Resting split percentage (centered on facial midline: 680 / 1676 ≈ 40.57%)
-      const DEFAULT_SPLIT = 40.57;
-      let currentSplit = DEFAULT_SPLIT;
-      let targetSplit = DEFAULT_SPLIT;
-      let isInteracting = false;
-      let isDragging = false;
-      let animFrameId = null;
-
-      function updateView(pct) {
-        clipOverlay.style.clipPath = `polygon(${pct}% 0%, 100% 0%, 100% 100%, ${pct}% 100%)`;
-        splitLine.style.left = `${pct}%`;
-      }
-
-      function lerpLoop() {
-        // Smooth easing towards target position
-        currentSplit += (targetSplit - currentSplit) * 0.14;
-        updateView(currentSplit);
-
-        if (Math.abs(targetSplit - currentSplit) > 0.05) {
-          animFrameId = requestAnimationFrame(lerpLoop);
+      function applyTheme(theme) {
+        htmlEl.setAttribute("data-theme", theme);
+        localStorage.setItem("racha_theme", theme);
+        if (theme === "dark") {
+          moonIcon.style.display = "none";
+          sunIcon.style.display = "block";
         } else {
-          currentSplit = targetSplit;
-          updateView(currentSplit);
-          animFrameId = null;
+          moonIcon.style.display = "block";
+          sunIcon.style.display = "none";
         }
       }
 
-      function setTarget(pct) {
-        targetSplit = Math.max(5, Math.min(95, pct));
-        if (!animFrameId) {
-          animFrameId = requestAnimationFrame(lerpLoop);
+      const savedTheme = localStorage.getItem("racha_theme") || "light";
+      applyTheme(savedTheme);
+
+      themeBtn.addEventListener("click", () => {
+        const currentTheme = htmlEl.getAttribute("data-theme") || "light";
+        const nextTheme = currentTheme === "dark" ? "light" : "dark";
+        applyTheme(nextTheme);
+      });
+
+      // ======================================================================
+      // 2. LIVE CLOCK & MOUSE TELEMETRY (MATCHING SWADESHI.DEV)
+      // ======================================================================
+      const clockEl = document.getElementById("telem-clock");
+      const coordsEl = document.getElementById("telem-coords");
+
+      function updateClock() {
+        const now = new Date();
+        // Indian Standard Time format
+        const istString = now.toLocaleTimeString("en-IN", {
+          timeZone: "Asia/Kolkata",
+          hour12: false,
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit"
+        });
+        if (clockEl) {
+          clockEl.textContent = istString + " IST";
         }
       }
+      setInterval(updateClock, 1000);
+      updateClock();
 
-      function getPctFromEvent(e) {
-        const rect = splitBox.getBoundingClientRect();
-        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-        const x = clientX - rect.left;
-        return (x / rect.width) * 100;
-      }
-
-      // Mouse & Pointer move on canvas
-      splitBox.addEventListener('pointerenter', () => {
-        isInteracting = true;
-      });
-
-      splitBox.addEventListener('pointermove', (e) => {
-        const pct = getPctFromEvent(e);
-        setTarget(pct);
-      });
-
-      splitBox.addEventListener('pointerleave', () => {
-        if (!isDragging) {
-          isInteracting = false;
-          setTarget(DEFAULT_SPLIT);
-        }
-      });
-
-      // Pointer drag support
-      splitBox.addEventListener('pointerdown', (e) => {
-        isDragging = true;
-        splitBox.setPointerCapture(e.pointerId);
-        setTarget(getPctFromEvent(e));
-      });
-
-      splitBox.addEventListener('pointerup', (e) => {
-        isDragging = false;
-        try { splitBox.releasePointerCapture(e.pointerId); } catch(err){}
-        if (!isInteracting) {
-          setTarget(DEFAULT_SPLIT);
+      window.addEventListener("mousemove", (e) => {
+        if (coordsEl) {
+          const x = String(e.clientX).padStart(4, "0");
+          const y = String(e.clientY).padStart(4, "0");
+          coordsEl.textContent = `PTR: [X:${x} Y:${y}]`;
         }
       });
 
-      // Hover triggers on flanking text columns
-      if (designerTrigger) {
-        designerTrigger.addEventListener('mouseenter', () => setTarget(85));
-        designerTrigger.addEventListener('mouseleave', () => setTarget(DEFAULT_SPLIT));
+      // ======================================================================
+      // 3. PORTRAIT IMAGE TOGGLE (CUTOUT VS ORIGINAL STUDIO SHOT)
+      // ======================================================================
+      const portraitImg = document.getElementById("portrait-display-img");
+      const togglePortraitBtn = document.getElementById("toggle-portrait-view");
+      let isCutout = true;
+
+      if (togglePortraitBtn && portraitImg) {
+        togglePortraitBtn.addEventListener("click", () => {
+          isCutout = !isCutout;
+          if (isCutout) {
+            portraitImg.src = "assets/images/sumanth-cutout.png";
+            portraitImg.style.objectFit = "contain";
+            portraitImg.style.maxHeight = "96%";
+            togglePortraitBtn.textContent = "Switch View: Full Studio ⟷ Cutout";
+          } else {
+            portraitImg.src = "assets/images/sumanth-photo.jpg";
+            portraitImg.style.objectFit = "cover";
+            portraitImg.style.maxHeight = "100%";
+            portraitImg.style.width = "100%";
+            togglePortraitBtn.textContent = "Switch View: Cutout ⟷ Studio";
+          }
+        });
       }
 
-      if (coderTrigger) {
-        coderTrigger.addEventListener('mouseenter', () => setTarget(15));
-        coderTrigger.addEventListener('mouseleave', () => setTarget(DEFAULT_SPLIT));
+      // ======================================================================
+      // 4. TIMELINE CATEGORY FILTER
+      // ======================================================================
+      function filterTimeline(category, btn) {
+        const entries = document.querySelectorAll(".timeline-entry");
+        const filterBtns = document.querySelectorAll(".timeline-filter-btn");
+
+        filterBtns.forEach((b) => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        entries.forEach((entry) => {
+          if (category === "all" || entry.getAttribute("data-category") === category) {
+            entry.style.display = "block";
+          } else {
+            entry.style.display = "none";
+          }
+        });
       }
 
-      // Initial layout update
-      updateView(DEFAULT_SPLIT);
-    })();
-  </script>
-</body>
+      // ======================================================================
+      // 5. LIGHTBOX MODAL FOR RESEARCH DIAGRAMS
+      // ======================================================================
+      const lightboxModal = document.getElementById("lightbox-modal");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const lightboxCaption = document.getElementById("lightbox-caption");
+      const lightboxTitle = document.getElementById("lightbox-title");
+
+      function openLightbox(src, caption) {
+        lightboxImg.src = src;
+        lightboxCaption.textContent = caption;
+        lightboxTitle.textContent = "// DIAGRAM: " + caption;
+        lightboxModal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeLightbox() {
+        lightboxModal.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && lightboxModal.classList.contains("active")) {
+          closeLightbox();
+        }
+      });
+
+      // ======================================================================
+      // 6. CLIPBOARD COPY TOAST
+      // ======================================================================
+      const toastEl = document.getElementById("toast-notify");
+      const toastText = document.getElementById("toast-text");
+      let toastTimer = null;
+
+      function copyToClipboard(text, message) {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast(message || "Copied to clipboard!");
+        }).catch(() => {
+          // Fallback
+          const ta = document.createElement("textarea");
+          ta.value = text;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand("copy");
+          document.body.removeChild(ta);
+          showToast(message || "Copied to clipboard!");
+        });
+      }
+
+      function showToast(msg) {
+        toastText.textContent = msg;
+        toastEl.classList.add("visible");
+        clearTimeout(toastTimer);
+        toastTimer = setTimeout(() => {
+          toastEl.classList.remove("visible");
+        }, 2800);
+      }
+
+      // ======================================================================
+      // 7. MOBILE MENU TOGGLE
+      // ======================================================================
+      const mobileToggleBtn = document.getElementById("mobile-toggle");
+      const mobileDrawer = document.getElementById("mobile-drawer");
+
+      if (window.innerWidth <= 992 && mobileToggleBtn) {
+        mobileToggleBtn.style.display = "inline-flex";
+      }
+
+      window.addEventListener("resize", () => {
+        if (window.innerWidth <= 992) {
+          if (mobileToggleBtn) mobileToggleBtn.style.display = "inline-flex";
+        } else {
+          if (mobileToggleBtn) mobileToggleBtn.style.display = "none";
+          if (mobileDrawer) mobileDrawer.classList.remove("open");
+        }
+      });
+
+      if (mobileToggleBtn && mobileDrawer) {
+        mobileToggleBtn.addEventListener("click", () => {
+          mobileDrawer.classList.toggle("open");
+        });
+      }
+
+      function toggleMobile() {
+        if (mobileDrawer) {
+          mobileDrawer.classList.remove("open");
+        }
+      }
+    </script>
+  </body>
 </html>
